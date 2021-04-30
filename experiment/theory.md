@@ -1,1 +1,5 @@
-### Link your theory in here
+For many soils, the water content may be an extremely important index used for establishing the relationship between the way a soil behaves and its properties. The consistency of a fine-grained soil largely depends on its water content. The water content is also used in expressing the phase relationships of air, water, and solids in a given volume of soil.
+
+Soil mass is generally a three phase system. It consists of solid particles, liquid and gas. For all practical purposes, the liquid may be considered to be water (although in some cases, the water may contain some dissolved salts) and the gas as air. The phase system may be expressed in SI units either in terms of mass-volume or weight-volume relationships. The inter relationships of the different phases are important since they help to define the condition or the physical make-up of the soil.
+
+[Read More](docs/Exp-1 WaterContent.pdf)

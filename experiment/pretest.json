@@ -1,18 +1,93 @@
 [
-{"question":"This is a Sample Question 1?",
+{"question":"1. Soil water content is expressed on what basis ",
 "answers":{
-            "a":"answer1",
-            "b":"answer2",
-            "c":"answer3",
-            "d":"answer4"
+            "a":"Gravimetric ",
+            "b":"volumetric",
+            "c":"Both a and b",
+            "d":"None"
           },
 "correctAnswer":"a"},
-{"question":"This is a Sample Question 2?",
+
+{"question":"2. Water content affects",
 "answers":{
-            "a":"answer1",
-            "b":"answer2",
-            "c":"answer3",
-            "d":"answer4"
+            "a":"Strength and settlement of soils",
+            "b":"Sensitivity",
+            "c":"Relative dendity",
+            "d":"Relative dendity"
           },
-"correctAnswer":"c"} 
+"correctAnswer":"c"}, 
+
+{"question":"3. The water content of clays are generally ________ sand and silts  ",
+"answers":{
+            "a":"Greater than",
+            "b":"Equal to",
+            "c":"Less than",
+            "d":"None"
+          },
+"correctAnswer":"a"},
+
+{"question":"4. The standard method of determining water content is",
+"answers":{
+            "a":"Oven-drying method",
+            "b":"Calcium carbide method",
+            "c":"Alcohol method",
+            "d":"Pycnometer method"
+          },
+"correctAnswer":"c"}, 
+
+{"question":"5. Water content for dry soil is equal to ",
+"answers":{
+            "a":"0 ",
+            "b":"<0",
+            "c":">0",
+            "d":"<=0"
+          },
+"correctAnswer":"a"},
+
+{"question":"6. Pycnometer is used to determined",
+"answers":{
+            "a":"Water content and void ratio",
+            "b":"Specific gravity and dry density",
+            "c":"Water content and specific gravity",
+            "d":"Void ratio and dry density"
+          },
+"correctAnswer":"c"}, 
+
+{"question":"7. The water content of soil is defined as the ratio of",
+"answers":{
+            "a":"Volume of water to volume of given soil",
+            "b":"Volume of water to volume of voids in soil",
+            "c":"Weight of water to weight of air voids",
+            "d":"Weight of water to weight of solids of given mass of soil"
+          },
+"correctAnswer":"a"},
+
+{"question":"8. Water content of a soil sample is the difference of weight of given sample at the temperature and the weight determined after drying it for 24hrs at temperature ranging from ⁰c ",
+"answers":{
+            "a":"80⁰ c to 90⁰c",
+            "b":"90⁰c to 95⁰c ",
+            "c":"95⁰c to 100⁰c",
+            "d":"105⁰c to 110⁰c"
+          },
+"correctAnswer":"c"}, 
+
+
+w{"question":"9. Water content for saturation soil is ",
+"answers":{
+            "a":"=0",
+            "b":"<0",
+            "c":">0",
+            "d":"<=0"
+          },
+"correctAnswer":"a"},
+
+{"question":"10. The ratio of the weight of given volume of soil solids to the weight of an equal of distilled water at the given temperature, is known",
+"answers":{
+            "a":"Porosity",
+            "b":"Specific gravity",
+            "c":"Void ratio",
+            "d":"Water content"
+          },
+"correctAnswer":"c"}
+
 ]
