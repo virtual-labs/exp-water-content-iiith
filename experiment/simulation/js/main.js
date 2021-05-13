@@ -2,6 +2,10 @@
 
 document.addEventListener('DOMContentLoaded', function(){
 
+	document.getElementById("output1").innerHTML = "Mass of container = ____ g";
+	document.getElementById("output2").innerHTML = "Mass of wet soil = ____ g";
+	document.getElementById("output3").innerHTML = "Mass of dry soil = ____ g";
+
 	const playButton = document.getElementById('play');
 	const pauseButton = document.getElementById('pause');
 	const restartButton = document.getElementById('restart');
@@ -27,6 +31,21 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		if(translate[0] === 0 && translate[1] === 0)
 		{
+			if(step === 0)
+			{
+				document.getElementById("output1").innerHTML = "Mass of container = " + String(10) + "g";
+			}
+
+			else if(step === 1)
+			{
+				document.getElementById("output2").innerHTML = "Mass of wet soil = " + String(wetSoilMass) + "g";
+			}
+
+			else if(step === 4)
+			{
+				document.getElementById("output3").innerHTML = "Mass of dry soil = " + String(90) + "g";
+			}
+
 			return step + 1;
 		}
 
