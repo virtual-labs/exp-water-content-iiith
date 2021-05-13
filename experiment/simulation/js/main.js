@@ -5,11 +5,13 @@ document.addEventListener('DOMContentLoaded', function(){
 	const playButton = document.getElementById('play');
 	const pauseButton = document.getElementById('pause');
 	const restartButton = document.getElementById('restart');
-	const instrMsg = document.getElementsByClassName('procedure-message');
+	const instrMsg = document.getElementById('procedure-message');
+	const soilMenu = document.getElementById('soilMenu');
 
 	pauseButton.addEventListener('click', function() { window.clearTimeout(tmHandle); });
 	playButton.addEventListener('click', function() { window.clearTimeout(tmHandle); tmHandle = setTimeout(draw, 1000 / fps); });
 	restartButton.addEventListener('click', function() {restart();});
+	soilMenu.addEventListener('change', function() { window.clearTimeout(tmHandle); soilType = soilMenu.value; restart(); });
 
 	function limCheck(obj, translate, lim, step)
 	{
@@ -102,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 
 			ctx.beginPath();
-			ctx.fillStyle = "#654321";
+			ctx.fillStyle = colors[soilType];
 			ctx.lineWidth = lineWidth;
 			ctx.beginPath();
 	
@@ -147,61 +149,51 @@ document.addEventListener('DOMContentLoaded', function(){
 		};
 
 		draw(ctx) {
+			// Outline
 			ctx.fillStyle = "white";
 			ctx.lineWidth = 3;
 			ctx.beginPath();
-			ctx.moveTo(this.pos[0], this.pos[1]);
-			ctx.lineTo(this.pos[0] + this.width, this.pos[1]);
-			ctx.lineTo(this.pos[0] + this.width, this.pos[1] + this.height);
-			ctx.lineTo(this.pos[0], this.pos[1] + this.height);
+			ctx.rect(this.pos[0], this.pos[1], this.width, this.height);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
 
+			// Lower division(red part)
 			const divide = 0.80;
 			ctx.fillStyle = "red";
 			ctx.lineWidth = lineWidth;
 			ctx.beginPath();
-			ctx.moveTo(this.pos[0], this.pos[1] + divide * this.height);
-			ctx.lineTo(this.pos[0] + this.width, this.pos[1] + divide * this.height);
-			ctx.lineTo(this.pos[0] + this.width, this.pos[1] + this.height);
-			ctx.lineTo(this.pos[0], this.pos[1] + this.height);
+			ctx.rect(this.pos[0], this.pos[1] + divide * this.height, this.width, (1 - divide) * this.height);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
 
+			// Main segment(pink part)
 			const gap = 0.05;
 			ctx.fillStyle = "pink";
 			ctx.lineWidth = lineWidth;
 			ctx.beginPath();
-			ctx.moveTo(this.pos[0] + gap * this.width, this.pos[1] + gap * this.height);
-			ctx.lineTo(this.pos[0] + (1 - gap) * this.width, this.pos[1] + gap * this.height);
-			ctx.lineTo(this.pos[0] + (1 - gap) * this.width, this.pos[1] + divide * this.height);
-			ctx.lineTo(this.pos[0] + gap * this.width, this.pos[1] + divide * this.height);
+			ctx.rect(this.pos[0] + gap * this.width, this.pos[1] + gap * this.height, (1 - 2 * gap) * this.width, (divide - gap) * this.height);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
 
+			// Horizontal rectangle at bottom
 			const margin = [0.30, 0.05];
 			ctx.fillStyle = "white";
 			ctx.lineWidth = lineWidth;
 			ctx.beginPath();
-			ctx.moveTo(this.pos[0] + margin[0] * this.width, this.pos[1] + (margin[1] + divide) * this.height);
-			ctx.lineTo(this.pos[0] + (1 - margin[0]) * this.width, this.pos[1] + (margin[1] + divide) * this.height);
-			ctx.lineTo(this.pos[0] + (1 - margin[0]) * this.width, this.pos[1] + (1 - margin[1]) * this.height);
-			ctx.lineTo(this.pos[0] + margin[0] * this.width, this.pos[1] + (1 - margin[1]) * this.height);
+			ctx.rect(this.pos[0] + margin[0] * this.width, this.pos[1] + (margin[1] + divide) * this.height, (1 - 2 * margin[0]) * this.width, (1 - divide - 2 * margin[1]) * this.height);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
 
+			// Horizontal rectangle at bottom
 			const buttonGapX = 0.10;
 			ctx.fillStyle = "white";
 			ctx.lineWidth = lineWidth;
 			ctx.beginPath();
-			ctx.moveTo(this.pos[0] + buttonGapX * this.width, this.pos[1] + (margin[1] + divide) * this.height);
-			ctx.lineTo(this.pos[0] + (margin[0] - buttonGapX) * this.width, this.pos[1] + (margin[1] + divide) * this.height);
-			ctx.lineTo(this.pos[0] + (margin[0] - buttonGapX) * this.width, this.pos[1] + (1 - margin[1]) * this.height);
-			ctx.lineTo(this.pos[0] + buttonGapX * this.width, this.pos[1] + (1 - margin[1]) * this.height);
+			ctx.rect(this.pos[0] + buttonGapX * this.width, this.pos[1] + (margin[1] + divide) * this.height, (margin[0] - 2 * buttonGapX) * this.width, (1 - divide - 2 * margin[1]) * this.height);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
@@ -221,13 +213,6 @@ document.addEventListener('DOMContentLoaded', function(){
 		step = 0;
 		translate = [0, 0];
 		lim = [-1, -1];
-		msgs = [
-			"Click on the container to weigh it.",
-			"Click on the wet soil to add it to the container and weigh it.",
-			"Click on the container to move it to the oven for heating.",
-			"Click on the soil to start the oven and heat the soil.",
-			"Click on the container with dry soil to weigh it.",
-		];
 	};
 
 	function restart() 
@@ -237,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		tmHandle = window.setTimeout(draw, 1000 / fps); 
 	};
 
-	const sliders = ["slider"];
+	const sliders = ["soilMass"];
 	sliders.forEach(function(elem, ind) {
 		const slider = document.getElementById(elem);
 		const output = document.getElementById("demo_" + elem);
@@ -245,6 +230,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		slider.oninput = function() {
 			output.innerHTML = this.value;
+			if(ind === 0)
+			{
+				wetSoilMass = this.value;
+			}
 			restart();
 		};
 	});
@@ -311,6 +300,13 @@ document.addEventListener('DOMContentLoaded', function(){
 	const ctx = canvas.getContext("2d");
 
 	const fill = "#A9A9A9", border = "black", lineWidth = 1.5, fps = 15;
+	const colors = {"Loam": "#654321", "Sand": "#754321", "Clay": "#854321"}, msgs = [
+		"Click on the container to weigh it.",
+		"Click on the wet soil to add it to the container and weigh it.",
+		"Click on the container to move it to the oven for heating.",
+		"Click on the soil to start the oven and heat the soil.",
+		"Click on the container with dry soil to weigh it.",
+	];
 
 	canvas.addEventListener('click', function(event) { 
 		if(translate[0] != 0 || translate[1] != 0)
@@ -365,9 +361,11 @@ document.addEventListener('DOMContentLoaded', function(){
 		});
 	});
 
-	// Input Parameters 
-	let step, translate, lim, msgs, objs, keys;
+	let step, translate, lim, objs, keys;
 	init();
+
+	// Input Parameters 
+	let wetSoilMass = 100, soilType = "Loam";
 
 	function draw()
 	{

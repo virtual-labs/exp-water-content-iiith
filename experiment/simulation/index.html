@@ -11,8 +11,21 @@
 		<div class="columns is-centered">
 			<div class="column has-text-centered">
 				<div class="slidecontainer">
-					<p>Slider(unit): <span id="demo_slider"></span></p>
-					<input type="range" min="0" max="10" value="5" class="slider" id="slider">
+					<p>Soil Mass(g): <span id="demo_soilMass"></span></p>
+					<input type="range" min="50" max="500" value="100" class="slider" id="soilMass">
+				</div>
+			</div>
+
+			<div class="column has-text-centered">
+				<div>
+					Soil Type
+				</div>
+				<div class="select is-rounded">
+					<select id="soilMenu">
+						<option value="Loam">Loam</option>
+						<option value="Sand">Sand</option>
+						<option value="Clay">Clay</option>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -29,7 +42,7 @@
 			<div class="column has-text-centered">
 				<div class="instructions-box">
 					<div class="title is-4 instructions">Instructions</div>
-					<div id="procedure-message" class="procedure-message">Click on the spoon to add detergent to water</div>
+					<div id="procedure-message" class="procedure-message"></div>
 				</div>
 			</div>
 		</div>
