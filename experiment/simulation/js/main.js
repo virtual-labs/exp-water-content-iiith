@@ -10,6 +10,34 @@ document.addEventListener('DOMContentLoaded', function(){
 	playButton.addEventListener('click', function() { window.clearTimeout(tmHandle); tmHandle = setTimeout(draw, 1000 / fps); });
 	restartButton.addEventListener('click', function() {restart();});
 
+	function updatePos(obj, translate, lim, step)
+	{
+		if(translate[0] === 0 && translate[1] === 0)
+		{
+			return step;
+		}
+
+		obj.pos[0] += translate[0];
+		obj.pos[1] += translate[1];
+
+		if(obj.pos[0] === lim[0])
+		{
+			translate[0] = 0;
+		}
+
+		if(obj.pos[1] === lim[1])
+		{
+			translate[1] = 0;
+		}
+
+		if(translate[0] === 0 && translate[1] === 0)
+		{
+			return step + 1;
+		}
+
+		return step;
+	};
+
 	class container {
 		constructor(height, width, radius, x, y) {
 			this.height = height;
@@ -53,26 +81,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			ctx.fill();
 			ctx.stroke();
 		};
-
-		updatePos(translate, lim, step) {
-			if(step === 2)
-			{
-				return;
-			}
-
-			this.pos[0] += translate[0];
-			this.pos[1] += translate[1];
-
-			if(this.pos[0] === lim[0])
-			{
-				translate[0] = 0;
-			}
-
-			if(this.pos[1] === lim[1])
-			{
-				translate[1] = 0;
-			}
-		}
 	};
 
 	class soil {
@@ -91,26 +99,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			ctx.fill();
 			ctx.stroke();
 		};
-
-		updatePos(translate, lim, step) {
-			if(step === 1)
-			{
-				return;
-			}
-
-			this.pos[0] += translate[0];
-			this.pos[1] += translate[1];
-
-			if(this.pos[0] === lim[0])
-			{
-				translate[0] = 0;
-			}
-
-			if(this.pos[1] === lim[1])
-			{
-				translate[1] = 0;
-			}
-		}
 	};
 
 	class weight{
@@ -200,6 +188,8 @@ document.addEventListener('DOMContentLoaded', function(){
 	function init()
 	{
 		step = 0;
+		translate = [0, 0];
+		lim = [-1, -1];
 	};
 
 	function restart() 
@@ -291,6 +281,11 @@ document.addEventListener('DOMContentLoaded', function(){
 	}, keys = Object.keys(objs);
 
 	canvas.addEventListener('click', function(event) { 
+		if(translate[0] != 0 || translate[1] != 0)
+		{
+			return;
+		}
+
 		const canvasPos = [event.pageX - canvas.offsetLeft, (20 / 17) * (event.pageY - canvas.offsetTop)];
 
 		keys.forEach(function(val, ind){
@@ -302,7 +297,6 @@ document.addEventListener('DOMContentLoaded', function(){
 					translate[1] = 5;
 					lim[0] = 135;
 					lim[1] = 250;
-					step = (step + 1) % 4;
 				}
 
 				else if(step === 1 && val === "soil")
@@ -311,7 +305,6 @@ document.addEventListener('DOMContentLoaded', function(){
 					translate[1] = 5;
 					lim[0] = 135;
 					lim[1] = 280;
-					step = (step + 1) % 4;
 				}
 
 				else if(step === 2 && val === "container")
@@ -320,7 +313,6 @@ document.addEventListener('DOMContentLoaded', function(){
 					translate[1] = 5;
 					lim[0] = 560;
 					lim[1] = 400;
-					step = (step + 1) % 4;
 				}
 
 				else if(step === 3 && val === "container")
@@ -329,14 +321,13 @@ document.addEventListener('DOMContentLoaded', function(){
 					translate[1] = -5;
 					lim[0] = 135;
 					lim[1] = 250;
-					step = (step + 1) % 4;
 				}
 			}
 		});
 	});
 
 	// Input Parameters 
-	let step, translate = [0, 0], lim = [-1, -1];
+	let step, translate, lim;
 	init();
 
 	function draw()
@@ -349,8 +340,15 @@ document.addEventListener('DOMContentLoaded', function(){
 			objs[val].draw(ctx);
 		});
 
-		objs['container'].updatePos(translate, lim, step);
-		objs['soil'].updatePos(translate, lim, step);
+		if(step != 1)
+		{
+			step = updatePos(objs['container'], translate, lim, step);
+		}
+
+		if(step != 0)
+		{
+			step = updatePos(objs['soil'], translate, lim, step);
+		}
 
 		tmHandle = window.setTimeout(draw, 1000 / fps);
 	};
