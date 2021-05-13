@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	const playButton = document.getElementById('play');
 	const pauseButton = document.getElementById('pause');
 	const restartButton = document.getElementById('restart');
+	const instrMsg = document.getElementsByClassName('procedure-message');
 
 	pauseButton.addEventListener('click', function() { window.clearTimeout(tmHandle); });
 	playButton.addEventListener('click', function() { window.clearTimeout(tmHandle); tmHandle = setTimeout(draw, 1000 / fps); });
@@ -209,9 +210,24 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	function init()
 	{
+		objs = {
+			"weight": new weight(270, 240, 90, 300),
+			"oven": new oven(330, 240, 520, 240),
+			"container": new container(120, 150, 8, 600, 30),
+			"soil": new soil(90, 150, 8, 90, 30),
+		};
+		keys = Object.keys(objs);
+
 		step = 0;
 		translate = [0, 0];
 		lim = [-1, -1];
+		msgs = [
+			"Click on the container to weigh it.",
+			"Click on the wet soil to add it to the container and weigh it.",
+			"Click on the container to move it to the oven for heating.",
+			"Click on the soil to start the oven and heat the soil.",
+			"Click on the container with dry soil to weigh it.",
+		];
 	};
 
 	function restart() 
@@ -295,12 +311,6 @@ document.addEventListener('DOMContentLoaded', function(){
 	const ctx = canvas.getContext("2d");
 
 	const fill = "#A9A9A9", border = "black", lineWidth = 1.5, fps = 15;
-	const objs = {
-		"weight": new weight(270, 240, 90, 300),
-		"oven": new oven(330, 240, 520, 240),
-		"container": new container(120, 150, 8, 600, 30),
-		"soil": new soil(90, 150, 8, 90, 30),
-	}, keys = Object.keys(objs);
 
 	canvas.addEventListener('click', function(event) { 
 		if(translate[0] != 0 || translate[1] != 0)
@@ -356,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	});
 
 	// Input Parameters 
-	let step, translate, lim;
+	let step, translate, lim, msgs, objs, keys;
 	init();
 
 	function draw()
@@ -396,6 +406,12 @@ document.addEventListener('DOMContentLoaded', function(){
 			step = temp;
 		}
 
+		if(step === 5)
+		{
+			restart();
+		}
+
+		document.getElementById("procedure-message").innerHTML = msgs[step];
 		tmHandle = window.setTimeout(draw, 1000 / fps);
 	};
 
