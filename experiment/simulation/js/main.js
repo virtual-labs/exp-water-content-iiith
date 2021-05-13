@@ -84,20 +84,44 @@ document.addEventListener('DOMContentLoaded', function(){
 	};
 
 	class soil {
-		constructor(height, width, x, y) {
+		constructor(height, width, radius, x, y) {
 			this.height = height;
 			this.width = width;
+			this.radius = radius;
 			this.pos = [x, y];
 		};
 
 		draw(ctx) {
+			if (this.width < 2 * this.radius) 
+			{
+				this.radius = this.width / 2;
+			}
+
+			if (this.height < 2 * this.radius) 
+			{
+				this.radius = this.height / 2;
+			}
+
+			ctx.beginPath();
 			ctx.fillStyle = "#654321";
 			ctx.lineWidth = lineWidth;
 			ctx.beginPath();
-			ctx.rect(this.pos[0], this.pos[1], this.width, this.height)
+	
+			ctx.moveTo(this.pos[0] + this.radius, this.pos[1]);
+			ctx.arcTo(this.pos[0] + this.width, this.pos[1], this.pos[0] + this.width, this.pos[1] + this.height, this.radius);
+			ctx.arcTo(this.pos[0] + this.width, this.pos[1] + this.height, this.pos[0], this.pos[1] + this.height, this.radius);
+			ctx.arcTo(this.pos[0], this.pos[1] + this.height, this.pos[0], this.pos[1], this.radius);
+			ctx.arcTo(this.pos[0], this.pos[1], this.pos[0] + this.width, this.pos[1], this.radius);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
+			ctx.closePath();
+			ctx.fill();
+			ctx.stroke();
+		};
+
+		heating(unit) {
+			this.height -= unit;
 		};
 	};
 
@@ -277,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		"weight": new weight(270, 240, 90, 300),
 		"oven": new oven(330, 240, 520, 240),
 		"container": new container(120, 150, 8, 600, 30),
-		"soil": new soil(90, 150, 90, 30),
+		"soil": new soil(90, 150, 8, 90, 30),
 	}, keys = Object.keys(objs);
 
 	canvas.addEventListener('click', function(event) { 
@@ -316,7 +340,13 @@ document.addEventListener('DOMContentLoaded', function(){
 					lim[1] = 400;
 				}
 
-				else if(step === 3 && val === "container")
+				else if(step === 3 && val === "soil")
+				{
+					translate[1] = 1;
+					lim[1] = 430;
+				}
+
+				else if(step === 4 && val === "container")
 				{
 					translate[0] = -5;
 					translate[1] = -5;
@@ -341,7 +371,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			objs[val].draw(ctx);
 		});
 
-		if(step != 1)
+		if(step != 1 && step != 3)
 		{
 			step = updatePos(objs['container'], translate, lim, step);
 		}
@@ -349,6 +379,10 @@ document.addEventListener('DOMContentLoaded', function(){
 		if(step != 0)
 		{
 			step = updatePos(objs['soil'], translate, lim, step);
+			if(step === 3)
+			{
+				objs['soil'].heating(translate[1]);
+			}
 		}
 
 		tmHandle = window.setTimeout(draw, 1000 / fps);
