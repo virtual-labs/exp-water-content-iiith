@@ -10,16 +10,8 @@ document.addEventListener('DOMContentLoaded', function(){
 	playButton.addEventListener('click', function() { window.clearTimeout(tmHandle); tmHandle = setTimeout(draw, 1000 / fps); });
 	restartButton.addEventListener('click', function() {restart();});
 
-	function updatePos(obj, translate, lim, step)
+	function limCheck(obj, translate, lim, step)
 	{
-		if(translate[0] === 0 && translate[1] === 0)
-		{
-			return step;
-		}
-
-		obj.pos[0] += translate[0];
-		obj.pos[1] += translate[1];
-
 		if(obj.pos[0] === lim[0])
 		{
 			translate[0] = 0;
@@ -36,6 +28,12 @@ document.addEventListener('DOMContentLoaded', function(){
 		}
 
 		return step;
+	};
+
+	function updatePos(obj, translate, lim, step)
+	{
+		obj.pos[0] += translate[0];
+		obj.pos[1] += translate[1];
 	};
 
 	class container {
@@ -337,13 +335,13 @@ document.addEventListener('DOMContentLoaded', function(){
 					translate[0] = 5;
 					translate[1] = 5;
 					lim[0] = 560;
-					lim[1] = 400;
+					lim[1] = 350;
 				}
 
 				else if(step === 3 && val === "soil")
 				{
 					translate[1] = 1;
-					lim[1] = 430;
+					lim[1] = 400;
 				}
 
 				else if(step === 4 && val === "container")
@@ -371,18 +369,31 @@ document.addEventListener('DOMContentLoaded', function(){
 			objs[val].draw(ctx);
 		});
 
-		if(step != 1 && step != 3)
+		if(translate[0] != 0 || translate[1] != 0)
 		{
-			step = updatePos(objs['container'], translate, lim, step);
-		}
+			let temp = step;
 
-		if(step != 0)
-		{
-			step = updatePos(objs['soil'], translate, lim, step);
-			if(step === 3)
+			if(step != 0)
 			{
-				objs['soil'].heating(translate[1]);
+				updatePos(objs['soil'], translate, lim, step);
+				if(step === 3)
+				{
+					objs['soil'].heating(translate[1]);
+				}
+
+				if(step === 1 || step === 3)
+				{
+					temp = limCheck(objs['soil'], translate, lim, step);
+				}
 			}
+
+			if(step != 1 && step != 3)
+			{
+				updatePos(objs['container'], translate, lim, step);
+				temp = limCheck(objs['container'], translate, lim, step);
+			}
+
+			step = temp;
 		}
 
 		tmHandle = window.setTimeout(draw, 1000 / fps);
