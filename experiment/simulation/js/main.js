@@ -286,10 +286,11 @@ document.addEventListener('DOMContentLoaded', function(){
 			return;
 		}
 
-		const canvasPos = [event.pageX - canvas.offsetLeft, (20 / 17) * (event.pageY - canvas.offsetTop)];
+		const canvasPos = [(canvas.width / canvas.offsetWidth) * (event.pageX - canvas.offsetLeft), (canvas.height / canvas.offsetHeight) * (event.pageY - canvas.offsetTop)];
+		const errMargin = 10;
 
 		keys.forEach(function(val, ind){
-			if(canvasPos[0] >= objs[val].pos[0] && canvasPos[0] <= objs[val].pos[0] + objs[val].width && canvasPos[1] >= objs[val].pos[1] && canvasPos[1] <= objs[val].pos[1] + objs[val].height)
+			if(canvasPos[0] >= objs[val].pos[0] - errMargin && canvasPos[0] <= objs[val].pos[0] + objs[val].width + errMargin && canvasPos[1] >= objs[val].pos[1] - errMargin && canvasPos[1] <= objs[val].pos[1] + objs[val].height + errMargin)
 			{
 				if(step === 0 && val === "container")
 				{
