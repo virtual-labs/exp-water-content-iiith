@@ -2,10 +2,6 @@
 
 document.addEventListener('DOMContentLoaded', function(){
 
-	document.getElementById("output1").innerHTML = "Mass of container = ____ g";
-	document.getElementById("output2").innerHTML = "Mass of wet soil = ____ g";
-	document.getElementById("output3").innerHTML = "Mass of dry soil = ____ g";
-
 	const playButton = document.getElementById('play');
 	const pauseButton = document.getElementById('pause');
 	const restartButton = document.getElementById('restart');
@@ -221,6 +217,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	function init()
 	{
+		document.getElementById("output1").innerHTML = "Mass of container = ____ g";
+		document.getElementById("output2").innerHTML = "Mass of wet soil = ____ g";
+		document.getElementById("output3").innerHTML = "Mass of dry soil = ____ g";
+
 		objs = {
 			"weight": new weight(270, 240, 90, 300),
 			"oven": new oven(330, 240, 520, 240),
