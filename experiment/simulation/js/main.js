@@ -3,13 +3,25 @@
 document.addEventListener('DOMContentLoaded', function(){
 
 	const playButton = document.getElementById('play');
-	const pauseButton = document.getElementById('pause');
 	const restartButton = document.getElementById('restart');
 	const instrMsg = document.getElementById('procedure-message');
 	const soilMenu = document.getElementById('soilMenu');
 
-	pauseButton.addEventListener('click', function() { window.clearTimeout(tmHandle); });
-	playButton.addEventListener('click', function() { window.clearTimeout(tmHandle); tmHandle = setTimeout(draw, 1000 / fps); });
+	playButton.addEventListener('click', function() { 
+		if(document.getElementById('play').innerHTML === "Play")
+		{
+			window.clearTimeout(tmHandle); 
+			tmHandle = setTimeout(draw, 1000 / fps); 
+			document.getElementById('play').innerHTML = "Pause";
+		}
+
+		else
+		{
+			window.clearTimeout(tmHandle); 
+			document.getElementById('play').innerHTML = "Play";
+		}
+	});
+
 	restartButton.addEventListener('click', function() {restart();});
 	soilMenu.addEventListener('change', function() { window.clearTimeout(tmHandle); soilType = soilMenu.value; restart(); });
 
