@@ -241,16 +241,6 @@ document.addEventListener('DOMContentLoaded', function(){
 		};
 		keys = [];
 
-		objNames = Object.keys(objs);
-		objNames.forEach(function(elem, ind) {
-			const obj = document.getElementById(elem);
-			obj.addEventListener('click', function(event) {
-				keys.push(elem);
-				step += 1;
-			});
-		});
-
-		enabled = [["weight"], ["weight", "container"], ["weight", "container"], ["weight", "container", "soil"], ["weight", "container", "soil"], ["container", "soil", "oven"], ["container", "soil", "oven"], ["container", "soil", "oven"], ["weight", "container", "soil"], []];
 		step = 0;
 		translate = [0, 0];
 		lim = [-1, -1];
@@ -419,9 +409,19 @@ document.addEventListener('DOMContentLoaded', function(){
 		"Click the restart button to perform the experiment again.",
 	];
 
-	let step, translate, lim, objs, objNames, keys, enabled;
+	let step, translate, lim, objs, keys;
 	init();
 
+	const objNames = Object.keys(objs);
+	objNames.forEach(function(elem, ind) {
+		const obj = document.getElementById(elem);
+		obj.addEventListener('click', function(event) {
+			keys.push(elem);
+			step += 1;
+		});
+	});
+
+	const enabled = [["weight"], ["weight", "container"], ["weight", "container"], ["weight", "container", "soil"], ["weight", "container", "soil"], ["container", "soil", "oven"], ["container", "soil", "oven"], ["container", "soil", "oven"], ["weight", "container", "soil"], []];
 	// Input Parameters 
 	let wetSoilMass = 100, soilType = "Loam";
 	canvas.addEventListener('mousemove', function(event) {check(event, translate, step, false);});
