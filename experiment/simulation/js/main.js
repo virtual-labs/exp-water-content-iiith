@@ -39,17 +39,17 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		if(translate[0] === 0 && translate[1] === 0)
 		{
-			if(step === 0)
+			if(step === 2)
 			{
 				document.getElementById("output1").innerHTML = "Mass of container = " + String(10) + "g";
 			}
 
-			else if(step === 1)
+			else if(step === 4)
 			{
 				document.getElementById("output2").innerHTML = "Mass of wet soil = " + String(wetSoilMass) + "g";
 			}
 
-			else if(step === 4)
+			else if(step === 8)
 			{
 				document.getElementById("output3").innerHTML = "Mass of dry soil = " + String(90) + "g";
 			}
@@ -246,10 +246,11 @@ document.addEventListener('DOMContentLoaded', function(){
 			const obj = document.getElementById(elem);
 			obj.addEventListener('click', function(event) {
 				keys.push(elem);
+				step += 1;
 			});
 		});
 
-		enabled = [["weight", "container"], ["weight", "container", "soil"], ["container", "soil", "oven"], ["container", "soil", "oven"], ["weight", "container", "soil"], []];
+		enabled = [["weight"], ["weight", "container"], ["weight", "container"], ["weight", "container", "soil"], ["weight", "container", "soil"], ["container", "soil", "oven"], ["container", "soil", "oven"], ["container", "soil", "oven"], ["weight", "container", "soil"], []];
 		step = 0;
 		translate = [0, 0];
 		lim = [-1, -1];
@@ -277,21 +278,21 @@ document.addEventListener('DOMContentLoaded', function(){
 		keys.forEach(function(val, ind){
 			if(canvasPos[0] >= objs[val].pos[0] - errMargin && canvasPos[0] <= objs[val].pos[0] + objs[val].width + errMargin && canvasPos[1] >= objs[val].pos[1] - errMargin && canvasPos[1] <= objs[val].pos[1] + objs[val].height + errMargin)
 			{
-				if(step === 0 && val === "container")
+				if(step === 2 && val === "container")
 				{
 					hover = true;
 					translate[0] = -5;
 					lim[0] = 135;
 				}
 
-				else if(step === 1 && val === "soil")
+				else if(step === 4 && val === "soil")
 				{
 					hover = true;
 					translate[0] = -5;
 					lim[0] = 135;
 				}
 
-				else if(step === 2 && val === "container")
+				else if(step === 6 && val === "container")
 				{
 					hover = true;
 					translate[0] = 5;
@@ -300,14 +301,14 @@ document.addEventListener('DOMContentLoaded', function(){
 					lim[1] = 100;
 				}
 
-				else if(step === 3 && val === "soil")
+				else if(step === 7 && val === "soil")
 				{
 					hover = true;
 					translate[1] = 1;
 					lim[1] = 160;
 				}
 
-				else if(step === 4 && val === "container")
+				else if(step === 8 && val === "container")
 				{
 					hover = true;
 					translate[0] = -5;
@@ -406,12 +407,16 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	const fill = "#A9A9A9", border = "black", lineWidth = 1.5, fps = 25;
 	const colors = {"Loam": "#654321", "Sand": "#754321", "Clay": "#854321"}, msgs = [
-		"Add a weighing machine(weight) and container. Click on the container to weigh it.",
-		"Add a soil sample and click on it to add it to the container and weigh it.",
-		"Add an oven and click on the container to move it to the oven.",
-		"Click on the soil to start the oven and heat the soil.",
+		"Add a 'Weight'(weighing machine) from the apparatus menu.", 
+		"Add a 'Container' from the apparatus menu.",
+		"Click on the container to move it to the weighing machine and weigh it.",
+		"Set appropriate input values(Soil Mass and Soil Type) and add a 'Soil Sample' from the apparatus menu.",
+		"Click on the soil sample to add it to the container and weigh it.",
+		"Add an 'Oven' from the apparatus menu.", 
+		"Click on the container to move it to the oven.",
+		"Click on the soil to start the oven and heat the soil to dry it.",
 		"Click on the container with dry soil to weigh it.",
-		"Change the input values or click the restart button to perform the experiment again.",
+		"Click the restart button to perform the experiment again.",
 	];
 
 	let step, translate, lim, objs, objNames, keys, enabled;
@@ -468,22 +473,23 @@ document.addEventListener('DOMContentLoaded', function(){
 		if(translate[0] != 0 || translate[1] != 0)
 		{
 			let temp = step;
+			const soilMoves = [4, 6, 7, 8], containerMoves = [2, 6, 8];
 
-			if(step != 0)
+			if(soilMoves.includes(step))
 			{
 				updatePos(objs['soil'], translate, lim, step);
-				if(step === 3)
+				if(step === 7)
 				{
 					objs['soil'].heating(translate[1]);
 				}
 
-				if(step === 1 || step === 3)
+				if(step === 4 || step === 7)
 				{
 					temp = limCheck(objs['soil'], translate, lim, step);
 				}
 			}
 
-			if(step != 1 && step != 3)
+			if(containerMoves.includes(step))
 			{
 				updatePos(objs['container'], translate, lim, step);
 				temp = limCheck(objs['container'], translate, lim, step);
