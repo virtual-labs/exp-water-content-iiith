@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	});
 
 	restartButton.addEventListener('click', function() {restart();});
-	soilMenu.addEventListener('change', function() { window.clearTimeout(tmHandle); soilType = soilMenu.value; restart(); });
+	soilMenu.addEventListener('change', function(event) { soilType = event.target.value; });
 
 	function limCheck(obj, translate, lim, step)
 	{
@@ -340,7 +340,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			{
 				wetSoilMass = this.value;
 			}
-			restart();
 		};
 	});
 
@@ -432,11 +431,18 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		let ctr = 0;
 		document.getElementById("main").style.pointerEvents = 'none';
+		document.getElementById("soilMass").disabled = false;
+		document.getElementsByName("type").disabled = false;
 		objNames.forEach(function(name, ind) {
 			document.getElementById(name).style.pointerEvents = 'auto';
 			if(keys.includes(name) || !(enabled[step].includes(name)))
 			{
 				document.getElementById(name).style.pointerEvents = 'none';
+				if(name === "soil")
+				{
+					document.getElementById("soilMass").disabled = true;
+					document.getElementsByName("type").disabled = true;
+				}
 			}
 
 			if(keys.includes(name)) 

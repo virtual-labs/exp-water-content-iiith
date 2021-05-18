@@ -12,7 +12,7 @@
 
 .main {
 	width: 85%;
-	height: 85%;
+	height: 100%;
 }
 
 .action-button {
@@ -35,7 +35,7 @@
 
 .sidebar {
 	background-color: #f1f1f1;
-	height: 85%;
+	height: 100%;
 }
 
 .line {
@@ -48,4 +48,8 @@
 .option:hover {
 	background-color: #555;
 	color: white;
+}
+
+.slider {
+	width: 80%;
 }
