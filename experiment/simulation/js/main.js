@@ -234,13 +234,22 @@ document.addEventListener('DOMContentLoaded', function(){
 		document.getElementById("output3").innerHTML = "Mass of dry soil = ____ g";
 
 		objs = {
-			"weight": new weight(270, 240, 90, 300),
-			"oven": new oven(330, 240, 520, 240),
+			"weight": new weight(270, 240, 90, 80),
+			"oven": new oven(330, 240, 510, 30),
 			"container": new container(120, 150, 8, 600, 30),
-			"soil": new soil(90, 150, 8, 90, 30),
+			"soil": new soil(90, 150, 8, 600, 60),
 		};
-		keys = Object.keys(objs);
+		keys = [];
 
+		objNames = Object.keys(objs);
+		objNames.forEach(function(elem, ind) {
+			const obj = document.getElementById(elem);
+			obj.addEventListener('click', function(event) {
+				keys.push(elem);
+			});
+		});
+
+		enabled = [["weight", "container"], ["weight", "container", "soil"], ["container", "soil", "oven"], ["container", "soil", "oven"], ["weight", "container", "soil"], []];
 		step = 0;
 		translate = [0, 0];
 		lim = [-1, -1];
@@ -251,6 +260,72 @@ document.addEventListener('DOMContentLoaded', function(){
 		window.clearTimeout(tmHandle); 
 		init();
 		tmHandle = window.setTimeout(draw, 1000 / fps); 
+	};
+
+	function check(event, translate, step, flag=true)
+	{ 
+		if(translate[0] != 0 || translate[1] != 0)
+		{
+			return;
+		}
+
+		const canvasPos = [(canvas.width / canvas.offsetWidth) * (event.pageX - canvas.offsetLeft), (canvas.height / canvas.offsetHeight) * (event.pageY - canvas.offsetTop)];
+		const errMargin = 10;
+
+		let hover = false;
+		canvas.style.cursor = "default";
+		keys.forEach(function(val, ind){
+			if(canvasPos[0] >= objs[val].pos[0] - errMargin && canvasPos[0] <= objs[val].pos[0] + objs[val].width + errMargin && canvasPos[1] >= objs[val].pos[1] - errMargin && canvasPos[1] <= objs[val].pos[1] + objs[val].height + errMargin)
+			{
+				if(step === 0 && val === "container")
+				{
+					hover = true;
+					translate[0] = -5;
+					lim[0] = 135;
+				}
+
+				else if(step === 1 && val === "soil")
+				{
+					hover = true;
+					translate[0] = -5;
+					lim[0] = 135;
+				}
+
+				else if(step === 2 && val === "container")
+				{
+					hover = true;
+					translate[0] = 5;
+					translate[1] = 5;
+					lim[0] = 560;
+					lim[1] = 100;
+				}
+
+				else if(step === 3 && val === "soil")
+				{
+					hover = true;
+					translate[1] = 1;
+					lim[1] = 160;
+				}
+
+				else if(step === 4 && val === "container")
+				{
+					hover = true;
+					translate[0] = -5;
+					translate[1] = -5;
+					lim[0] = 135;
+					lim[1] = 30;
+				}
+			}
+		});
+
+		if(!flag && hover)
+		{
+			canvas.style.cursor = "pointer";
+			translate[0] = 0;
+			translate[1] = 0;
+			lim[0] = 0;
+			lim[1] = 0;
+		}
 	};
 
 	const sliders = ["soilMass"];
@@ -326,77 +401,28 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	const canvas = document.getElementById("main");
 	canvas.width = 840;
-	canvas.height = 600;
+	canvas.height = 400;
 	canvas.style = "border:3px solid";
 	const ctx = canvas.getContext("2d");
 
-	const fill = "#A9A9A9", border = "black", lineWidth = 1.5, fps = 15;
+	const fill = "#A9A9A9", border = "black", lineWidth = 1.5, fps = 25;
 	const colors = {"Loam": "#654321", "Sand": "#754321", "Clay": "#854321"}, msgs = [
-		"Click on the container to weigh it.",
-		"Click on the wet soil to add it to the container and weigh it.",
-		"Click on the container to move it to the oven for heating.",
+		"Add a weighing machine(weight) and container. Click on the container to weigh it.",
+		"Add a soil sample and click on it to add it to the container and weigh it.",
+		"Add an oven and click on the container to move it to the oven.",
 		"Click on the soil to start the oven and heat the soil.",
 		"Click on the container with dry soil to weigh it.",
+		"Change the input values or click the restart button to perform the experiment again.",
 	];
 
-	canvas.addEventListener('click', function(event) { 
-		if(translate[0] != 0 || translate[1] != 0)
-		{
-			return;
-		}
-
-		const canvasPos = [(canvas.width / canvas.offsetWidth) * (event.pageX - canvas.offsetLeft), (canvas.height / canvas.offsetHeight) * (event.pageY - canvas.offsetTop)];
-		const errMargin = 10;
-
-		keys.forEach(function(val, ind){
-			if(canvasPos[0] >= objs[val].pos[0] - errMargin && canvasPos[0] <= objs[val].pos[0] + objs[val].width + errMargin && canvasPos[1] >= objs[val].pos[1] - errMargin && canvasPos[1] <= objs[val].pos[1] + objs[val].height + errMargin)
-			{
-				if(step === 0 && val === "container")
-				{
-					translate[0] = -5;
-					translate[1] = 5;
-					lim[0] = 135;
-					lim[1] = 250;
-				}
-
-				else if(step === 1 && val === "soil")
-				{
-					translate[0] = 5;
-					translate[1] = 5;
-					lim[0] = 135;
-					lim[1] = 280;
-				}
-
-				else if(step === 2 && val === "container")
-				{
-					translate[0] = 5;
-					translate[1] = 5;
-					lim[0] = 560;
-					lim[1] = 350;
-				}
-
-				else if(step === 3 && val === "soil")
-				{
-					translate[1] = 1;
-					lim[1] = 400;
-				}
-
-				else if(step === 4 && val === "container")
-				{
-					translate[0] = -5;
-					translate[1] = -5;
-					lim[0] = 135;
-					lim[1] = 250;
-				}
-			}
-		});
-	});
-
-	let step, translate, lim, objs, keys;
+	let step, translate, lim, objs, objNames, keys, enabled;
 	init();
 
 	// Input Parameters 
 	let wetSoilMass = 100, soilType = "Loam";
+	canvas.addEventListener('mousemove', function(event) {check(event, translate, step, false);});
+	canvas.addEventListener('click', function(event) {check(event, translate, step);});
+
 
 	function draw()
 	{
@@ -404,9 +430,34 @@ document.addEventListener('DOMContentLoaded', function(){
 		ctx.lineCap = "round";
 		ctx.lineJoin = "round";
 
-		keys.forEach(function(val, ind){
-			objs[val].draw(ctx);
+		let ctr = 0;
+		document.getElementById("main").style.pointerEvents = 'none';
+		objNames.forEach(function(name, ind) {
+			document.getElementById(name).style.pointerEvents = 'auto';
+			if(keys.includes(name) || !(enabled[step].includes(name)))
+			{
+				document.getElementById(name).style.pointerEvents = 'none';
+			}
+
+			if(keys.includes(name)) 
+			{
+				if(enabled[step].includes(name))
+				{
+					ctr += 1;
+				}
+				objs[name].draw(ctx);
+
+				//if(!enabled[step].includes(val))
+				//{
+				//keys.splice(ind, 1);
+				//}
+			}
 		});
+
+		if(ctr === enabled[step].length)
+		{
+			document.getElementById("main").style.pointerEvents = 'auto';
+		}
 
 		if(translate[0] != 0 || translate[1] != 0)
 		{
@@ -433,11 +484,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 
 			step = temp;
-		}
-
-		if(step === 5)
-		{
-			restart();
 		}
 
 		document.getElementById("procedure-message").innerHTML = msgs[step];

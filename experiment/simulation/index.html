@@ -30,13 +30,6 @@
 			</div>
 		</div>
 
-		<div class="columns is-mobile is-centered">
-			<div class="column has-text-centered">
-				<button id="play" class="action-button">Pause</button>
-				<button id="restart" class="action-button">Restart</button>
-			</div>
-		</div>
-
 		<div class="columns is-centered">
 			<div class="column has-text-centered">
 				<div class="instructions-box">
@@ -46,25 +39,49 @@
 			</div>
 		</div>
 
-		<div class="columns is-mobile is-centered">
+		<div class="columns is-gapless is-centered">
+			<div class="column has-text-centered is-narrow">
+				<div class="sidebar">
+					<div class="title is-5">Apparatus Menu</div>
+					<a class="line option" id="container">Container</a>
+					<a class="line option" id="weight">Weight</a>
+					<a  class="line option" id="soil">Wet Soil</a>
+					<a  class="line option" id="oven">Oven</a>
+				</div>
+			</div>
+
 			<div class="column has-text-centered">
 				<div class="hero is-small">
 					<div class="hero-body">
 						<canvas id="main" class="main"></canvas>
 					</div>
 				</div>
+			</div>
 
-				<div class="title is-5" id="output1"></div>
-				<div class="title is-5" id="output2"></div>
-				<div class="title is-5" id="output3"></div>
+			<div class="column has-text-centered is-narrow">
+				<div class="sidebar">
+					<div class="title is-5">Observations</div>
+					<div class="line" id="output1"></div>
+					<div class="line" id="output2"></div>
+					<div class="line" id="output3"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="columns is-mobile is-centered">
+			<div class="column has-text-centered">
+				<button id="play" class="action-button">Pause</button>
+				<button id="restart" class="action-button">Restart</button>
 			</div>
 		</div>
 
 		<div class="graph">
 			<div class="title is-5">NOTE: Insert note here, if any.<div>
-			<div class="columns is-centered">
-				<div class="column has-text-centered">
-					<div id="graph"></div>
+					<div class="columns is-centered">
+						<div class="column has-text-centered">
+							<div id="graph"></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
