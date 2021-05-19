@@ -30,12 +30,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
 			else if(step === 4)
 			{
-				document.getElementById("output2").innerHTML = "Mass of wet soil = " + String(wetSoilMass) + "g";
+				document.getElementById("output3").innerHTML = "Mass of wet soil = " + String(wetSoilMass) + "g";
 			}
 
 			else if(step === 8)
 			{
-				document.getElementById("output3").innerHTML = "Mass of dry soil = " + String(90) + "g";
+				document.getElementById("output4").innerHTML = "Mass of dry soil = " + String(90) + "g";
 			}
 
 			return step + 1;
@@ -214,8 +214,9 @@ document.addEventListener('DOMContentLoaded', function(){
 	function init()
 	{
 		document.getElementById("output1").innerHTML = "Mass of container = ____ g";
-		document.getElementById("output2").innerHTML = "Mass of wet soil = ____ g";
-		document.getElementById("output3").innerHTML = "Mass of dry soil = ____ g";
+		document.getElementById("output2").innerHTML = "Soil Type = ____";
+		document.getElementById("output3").innerHTML = "Mass of wet soil = ____ g";
+		document.getElementById("output4").innerHTML = "Mass of dry soil = ____ g";
 
 		objs = {
 			"weight": new weight(270, 240, 90, 80),
@@ -409,6 +410,10 @@ document.addEventListener('DOMContentLoaded', function(){
 					document.getElementById("inputForm").style.display = 'none';
 					enabled[step].push(elem);
 					keys.push(elem);
+					if(step === 3)
+					{
+						document.getElementById("output2").innerHTML = "Soil Type = " + soilType;
+					}
 					step += 1;
 				});
 
