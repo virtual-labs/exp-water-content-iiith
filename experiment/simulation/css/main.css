@@ -55,7 +55,7 @@
 .line {
 	display: block;
 	color: black;
-	padding: 8px;
+	padding: 6px;
 	text-decoration: none;
 }
 
@@ -104,8 +104,8 @@
 
 	.apparatus {
 		order: 1;
-		width: 45%;
-		margin-left: 5%;
+		width: 40%;
+		margin-left: 7.5%;
 	}
 
 	.simulation {
@@ -115,7 +115,7 @@
 
 	.observations {
 		order: 2;
-		width: 45%;
-		margin-right: 5%;
+		width: 40%;
+		margin-right: 7.5%;
 	}
 }
