@@ -199,6 +199,10 @@ document.addEventListener('DOMContentLoaded', function(){
 			ctx.fill();
 			ctx.stroke();
 
+			ctx.font = "30px Arial";
+			ctx.fillStyle = "black";
+			ctx.fillText("Oven", this.pos[0] + margin[0] * this.width + 10, this.pos[1] + (margin[1] + divide) * this.height + 25);
+
 			// Small button at bottom
 			const buttonGapX = 0.10;
 			ctx.fillStyle = "white";
@@ -219,10 +223,10 @@ document.addEventListener('DOMContentLoaded', function(){
 		document.getElementById("output4").innerHTML = "Mass of dry soil = ____ g";
 
 		objs = {
-			"weight": new weight(270, 240, 90, 80),
+			"weight": new weight(270, 240, 90, 160),
 			"oven": new oven(330, 240, 510, 30),
-			"container": new container(120, 150, 8, 600, 30),
-			"soil": new soil(90, 150, 8, 600, 60),
+			"container": new container(120, 150, 8, 600, 240),
+			"soil": new soil(90, 150, 8, 600, 270),
 		};
 		keys = [];
 
@@ -259,14 +263,18 @@ document.addEventListener('DOMContentLoaded', function(){
 				{
 					hover = true;
 					translate[0] = -5;
+					translate[1] = -5;
 					lim[0] = 135;
+					lim[1] = 110;
 				}
 
 				else if(step === 4 && val === "soil")
 				{
 					hover = true;
 					translate[0] = -5;
+					translate[1] = -5;
 					lim[0] = 135;
+					lim[1] = 140;
 				}
 
 				else if(step === 6 && val === "container")
@@ -291,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function(){
 					translate[0] = -5;
 					translate[1] = -5;
 					lim[0] = 135;
-					lim[1] = 30;
+					lim[1] = 110;
 				}
 			}
 		});
@@ -384,7 +392,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	const fill = "#A9A9A9", border = "black", lineWidth = 1.5, fps = 150;
 	const colors = {"Loam": "#654321", "Sand": "#754321", "Clay": "#854321"}, msgs = [
-		"Add a 'Weight'(weighing machine) from the apparatus menu.", 
+		"Add a 'Weighing Machine' from the apparatus menu.", 
 		"Add a 'Container' from the apparatus menu.",
 		"Click on the container to move it to the weighing machine and weigh it.",
 		"Set appropriate input values (Soil Mass and Soil Type) and add a 'Soil Sample' from the apparatus menu.",
