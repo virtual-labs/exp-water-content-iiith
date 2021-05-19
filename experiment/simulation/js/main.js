@@ -2,25 +2,9 @@
 
 document.addEventListener('DOMContentLoaded', function(){
 
-	const playButton = document.getElementById('play');
 	const restartButton = document.getElementById('restart');
 	const instrMsg = document.getElementById('procedure-message');
 	const soilMenu = document.getElementById('soilMenu');
-
-	playButton.addEventListener('click', function() { 
-		if(document.getElementById('play').innerHTML === "Play")
-		{
-			window.clearTimeout(tmHandle); 
-			tmHandle = setTimeout(draw, 1000 / fps); 
-			document.getElementById('play').innerHTML = "Pause";
-		}
-
-		else
-		{
-			window.clearTimeout(tmHandle); 
-			document.getElementById('play').innerHTML = "Play";
-		}
-	});
 
 	restartButton.addEventListener('click', function() {restart();});
 	soilMenu.addEventListener('change', function(event) { soilType = event.target.value; });
@@ -215,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			ctx.fill();
 			ctx.stroke();
 
-			// Horizontal rectangle at bottom
+			// Small button at bottom
 			const buttonGapX = 0.10;
 			ctx.fillStyle = "white";
 			ctx.lineWidth = lineWidth;
@@ -288,14 +272,14 @@ document.addEventListener('DOMContentLoaded', function(){
 					translate[0] = 5;
 					translate[1] = 5;
 					lim[0] = 560;
-					lim[1] = 100;
+					lim[1] = 150;
 				}
 
-				else if(step === 7 && val === "soil")
+				else if(step === 7 && val === "oven" && canvasPos[0] >= objs[val].pos[0] - errMargin && canvasPos[0] <= objs[val].pos[0] + objs[val].width + errMargin && canvasPos[1] >= objs[val].pos[1] + objs[val].height * 0.8 - errMargin && canvasPos[1] <= objs[val].pos[1] + objs[val].height + errMargin)
 				{
 					hover = true;
 					translate[1] = 1;
-					lim[1] = 160;
+					lim[1] = 210;
 				}
 
 				else if(step === 8 && val === "container")
@@ -395,7 +379,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	canvas.style = "border:3px solid";
 	const ctx = canvas.getContext("2d");
 
-	const fill = "#A9A9A9", border = "black", lineWidth = 1.5, fps = 25;
+	const fill = "#A9A9A9", border = "black", lineWidth = 1.5, fps = 150;
 	const colors = {"Loam": "#654321", "Sand": "#754321", "Clay": "#854321"}, msgs = [
 		"Add a 'Weight'(weighing machine) from the apparatus menu.", 
 		"Add a 'Container' from the apparatus menu.",
@@ -404,7 +388,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		"Click on the soil sample to add it to the container and weigh it.",
 		"Add an 'Oven' from the apparatus menu.", 
 		"Click on the container to move it to the oven.",
-		"Click on the soil to start the oven and heat the soil to dry it.",
+		"Click on the oven red part to start the oven and heat the soil to dry it.",
 		"Click on the container with dry soil to weigh it.",
 		"Click the restart button to perform the experiment again.",
 	];
@@ -416,6 +400,21 @@ document.addEventListener('DOMContentLoaded', function(){
 	objNames.forEach(function(elem, ind) {
 		const obj = document.getElementById(elem);
 		obj.addEventListener('click', function(event) {
+			if(elem === "soil")
+			{
+				enabled[step].pop();
+				document.getElementById("inputForm").style.display = 'block';
+				const submitButton = document.getElementById("submit");
+				submitButton.addEventListener('click', function(event) {
+					document.getElementById("inputForm").style.display = 'none';
+					enabled[step].push(elem);
+					keys.push(elem);
+					step += 1;
+				});
+
+				return;
+			}
+
 			keys.push(elem);
 			step += 1;
 		});
@@ -436,18 +435,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		let ctr = 0;
 		document.getElementById("main").style.pointerEvents = 'none';
-		document.getElementById("soilMass").disabled = false;
-		document.getElementsByName("type").disabled = false;
+
 		objNames.forEach(function(name, ind) {
 			document.getElementById(name).style.pointerEvents = 'auto';
 			if(keys.includes(name) || !(enabled[step].includes(name)))
 			{
 				document.getElementById(name).style.pointerEvents = 'none';
-				if(name === "soil")
-				{
-					document.getElementById("soilMass").disabled = true;
-					document.getElementsByName("type").disabled = true;
-				}
 			}
 
 			if(keys.includes(name)) 
@@ -457,11 +450,6 @@ document.addEventListener('DOMContentLoaded', function(){
 					ctr += 1;
 				}
 				objs[name].draw(ctx);
-
-				//if(!enabled[step].includes(val))
-				//{
-				//keys.splice(ind, 1);
-				//}
 			}
 		});
 

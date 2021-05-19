@@ -1,9 +1,11 @@
 .page { 
 	overflow-x: scroll;
 }
+
 .instructions-box {
+	margin: auto;
 	margin-top: 1%;
-	width: 100%;
+	width: 40%;
 	padding: 1% 1%;
 	border-radius: 16px;
 	border: 3px solid rgb(151, 210, 61);
@@ -65,6 +67,10 @@
 	width: 80%;
 }
 
+.input-form {
+	display: none;
+}
+
 .apparatus {
 	order: 1;
 }
@@ -78,6 +84,10 @@
 }
 
 @media screen and (max-width: 700px) {
+	.instructions-box {
+		width: 100%;
+	}
+
 	.workspace {
 		flex-wrap: wrap;
 	}

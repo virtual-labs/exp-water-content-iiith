@@ -24,36 +24,32 @@
 					<a class="line option" id="container">Container</a>
 					<a class="line option" id="weight">Weight</a>
 					<a  class="line option" id="soil">Soil Sample</a>
-					<div class="slidecontainer">
-						<p>Soil Mass(g): <span id="demo_soilMass"></span></p>
-						<input type="range" min="50" max="500" value="100" class="slider" id="soilMass">
-					</div>
+					<div id="inputForm" class="input-form">
+						<div class="slidecontainer">
+							<p>Soil Mass(g): <span id="demo_soilMass"></span></p>
+							<input type="range" min="50" max="500" value="100" class="slider" id="soilMass">
+						</div>
 
-					<label>
-						Soil Type
-					</label>
-					<div id="soilMenu" class="control" >
-						<label class="radio">
-							<input type="radio" name="type" value="Loam" checked="checked">
-							Loam
+						<label>
+							Soil Type
 						</label>
-						<label class="radio">
-							<input type="radio" name="type" value="Sand">
-							Sand	
-						</label>
-						<label class="radio">
-							<input type="radio" name="type" value="Clay">
-							Clay	
-						</label>
-					</div>
+						<div id="soilMenu" class="control" >
+							<label class="radio">
+								<input type="radio" name="type" value="Loam" checked="checked">
+								Loam
+							</label>
+							<label class="radio">
+								<input type="radio" name="type" value="Sand">
+								Sand	
+							</label>
+							<label class="radio">
+								<input type="radio" name="type" value="Clay">
+								Clay	
+							</label>
+						</div>
 
-					<!--<div class="select is-rounded">-->
-						<!--<select id="soilMenu">-->
-							<!--<option value="Loam">Loam</option>-->
-							<!--<option value="Sand">Sand</option>-->
-							<!--<option value="Clay">Clay</option>-->
-						<!--</select>-->
-					<!--</div>-->
+						<button id="submit" class="action-button">Submit</button>
+					</div>
 
 					<a  class="line option" id="oven">Oven</a>
 				</div>
@@ -79,7 +75,6 @@
 
 		<div class="columns is-mobile is-centered">
 			<div class="column has-text-centered">
-				<button id="play" class="action-button">Pause</button>
 				<button id="restart" class="action-button">Restart</button>
 			</div>
 		</div>
