@@ -226,6 +226,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		};
 		keys = [];
 
+		enabled = [["weight"], ["weight", "container"], ["weight", "container"], ["weight", "container", "soil"], ["weight", "container", "soil"], ["container", "soil", "oven"], ["container", "soil", "oven"], ["container", "soil", "oven"], ["weight", "container", "soil"], []];
 		step = 0;
 		translate = [0, 0];
 		lim = [-1, -1];
@@ -234,6 +235,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	function restart() 
 	{ 
 		window.clearTimeout(tmHandle); 
+		document.getElementById("inputForm").style.display = 'none';
 		init();
 		tmHandle = window.setTimeout(draw, 1000 / fps); 
 	};
@@ -385,7 +387,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		"Add a 'Weight'(weighing machine) from the apparatus menu.", 
 		"Add a 'Container' from the apparatus menu.",
 		"Click on the container to move it to the weighing machine and weigh it.",
-		"Set appropriate input values(Soil Mass and Soil Type) and add a 'Soil Sample' from the apparatus menu.",
+		"Set appropriate input values (Soil Mass and Soil Type) and add a 'Soil Sample' from the apparatus menu.",
 		"Click on the soil sample to add it to the container and weigh it.",
 		"Add an 'Oven' from the apparatus menu.", 
 		"Click on the container to move it to the oven.",
@@ -394,7 +396,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		"Click the restart button to perform the experiment again.",
 	];
 
-	let step, translate, lim, objs, keys;
+	let step, translate, lim, objs, keys, enabled;
 	init();
 
 	const objNames = Object.keys(objs);
@@ -405,18 +407,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			{
 				enabled[step].pop();
 				document.getElementById("inputForm").style.display = 'block';
-				const submitButton = document.getElementById("submit");
-				submitButton.addEventListener('click', function(event) {
-					document.getElementById("inputForm").style.display = 'none';
-					enabled[step].push(elem);
-					keys.push(elem);
-					if(step === 3)
-					{
-						document.getElementById("output2").innerHTML = "Soil Type = " + soilType;
-					}
-					step += 1;
-				});
-
 				return;
 			}
 
@@ -425,12 +415,22 @@ document.addEventListener('DOMContentLoaded', function(){
 		});
 	});
 
-	const enabled = [["weight"], ["weight", "container"], ["weight", "container"], ["weight", "container", "soil"], ["weight", "container", "soil"], ["container", "soil", "oven"], ["container", "soil", "oven"], ["container", "soil", "oven"], ["weight", "container", "soil"], []];
 	// Input Parameters 
 	let wetSoilMass = 100, soilType = "Loam";
 	canvas.addEventListener('mousemove', function(event) {check(event, translate, step, false);});
 	canvas.addEventListener('click', function(event) {check(event, translate, step);});
 
+	const submitButton = document.getElementById("submit");
+	submitButton.addEventListener('click', function(event) {
+		document.getElementById("inputForm").style.display = 'none';
+		enabled[step].push("soil");
+		keys.push("soil");
+		if(step === 3)
+		{
+			document.getElementById("output2").innerHTML = "Soil Type = " + soilType;
+		}
+		step += 1;
+	});
 
 	function draw()
 	{

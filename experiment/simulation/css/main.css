@@ -51,7 +51,7 @@
 .line {
 	display: block;
 	color: black;
-	padding: 16px;
+	padding: 8px;
 	text-decoration: none;
 }
 
@@ -66,12 +66,17 @@
 
 .input-form {
 	display: none;
+	color: black;
 }
 
 .apparatus {
 	width: 20%;
 	margin-left: 2.5%;
 	order: 1;
+}
+
+.add {
+	font-size: 90%;
 }
 
 .simulation {
