@@ -251,6 +251,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	{ 
 		window.clearTimeout(tmHandle); 
 		document.getElementById("inputForm").style.display = 'none';
+		document.getElementById("table").innerHTML = "";
 		init();
 		tmHandle = window.setTimeout(draw, 1000 / fps); 
 	};
