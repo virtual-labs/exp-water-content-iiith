@@ -4,10 +4,22 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	const restartButton = document.getElementById('restart');
 	const instrMsg = document.getElementById('procedure-message');
-	const soilMenu = document.getElementById('soilMenu');
 
 	restartButton.addEventListener('click', function() {restart();});
-	soilMenu.addEventListener('change', function(event) { soilType = event.target.value; });
+
+	function randomNumber(min, max) {
+		return (Math.random() * (max - min + 1) + min).toFixed(2);
+	};
+
+	function logic(tableData)
+	{
+		const soilData = { 'Silt': randomNumber(22.5, 27.5), 'Sand': randomNumber(12, 16), 'Clay': randomNumber(30, 50) };
+		tableData.forEach(function(row, index) {
+			const ans = soilData[row['Soil Type']];
+			row['Water Content(%)'] = ans;
+			row['Dry Soil Mass(g)'] = ((1 - (ans / 100)) * wetSoilMass).toFixed(2);
+		});
+	};
 
 	function limCheck(obj, translate, lim, step)
 	{
@@ -30,14 +42,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
 			else if(step === 4)
 			{
-				document.getElementById("output3").innerHTML = "Mass of wet soil = " + String(wetSoilMass) + "g";
+				document.getElementById("output2").innerHTML = "Mass of wet soil = " + String(wetSoilMass) + "g";
 			}
 
 			else if(step === 8)
 			{
-				document.getElementById("output4").innerHTML = "Mass of dry soil = " + String(90) + "g";
+				logic(tableData);
+				generateTableHead(table, Object.keys(tableData[0]));
+				generateTable(table, tableData);
 			}
-
 			return step + 1;
 		}
 
@@ -115,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 
 			ctx.beginPath();
-			ctx.fillStyle = colors[soilType];
+			ctx.fillStyle = "#654321";
 			ctx.lineWidth = lineWidth;
 			ctx.beginPath();
 	
@@ -218,9 +231,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	function init()
 	{
 		document.getElementById("output1").innerHTML = "Mass of container = ____ g";
-		document.getElementById("output2").innerHTML = "Soil Type = ____";
-		document.getElementById("output3").innerHTML = "Mass of wet soil = ____ g";
-		document.getElementById("output4").innerHTML = "Mass of dry soil = ____ g";
+		document.getElementById("output2").innerHTML = "Mass of wet soil = ____ g";
 
 		objs = {
 			"weight": new weight(270, 240, 90, 160),
@@ -242,6 +253,28 @@ document.addEventListener('DOMContentLoaded', function(){
 		document.getElementById("inputForm").style.display = 'none';
 		init();
 		tmHandle = window.setTimeout(draw, 1000 / fps); 
+	};
+
+	function generateTableHead(table, data) {
+		let thead = table.createTHead();
+		let row = thead.insertRow();
+		data.forEach(function(key, ind) {
+			let th = document.createElement("th");
+			let text = document.createTextNode(key);
+			th.appendChild(text);
+			row.appendChild(th);
+		});
+	};
+
+	function generateTable(table, data) {
+		data.forEach(function(rowVals, ind) {
+			let row = table.insertRow();
+			Object.keys(rowVals).forEach(function(key, i) {
+				let cell = row.insertCell();
+				let text = document.createTextNode(rowVals[key]);
+				cell.appendChild(text);
+			});
+		});
 	};
 
 	function check(event, translate, step, flag=true)
@@ -335,55 +368,6 @@ document.addEventListener('DOMContentLoaded', function(){
 		ctx.bezierCurveTo(e[0] += gradX, e[1], e[0] += gradX, e[1] -= gradY, e[0], e[1] -= gradY);
 	};
 
-	function drawGraph(Xaxis, Yaxis, id, Xlabel, color) {
-		try {
-			// render the plot using plotly
-			const trace1 = {
-				x: Xaxis,
-				y: Yaxis,
-				type: 'scatter',
-				mode: 'lines+markers',
-				marker: {
-					color: color
-				}
-			};
-
-			const layout = {
-				width: 450,
-				height: 450,
-				xaxis: {
-					title: {
-						text: Xlabel,
-						font: {
-							family: 'Courier New, monospace',
-							size: 18,
-							color: '#000000'
-						}
-					},
-				},
-				yaxis: {
-					title: {
-						text: 'Maximum Displacement',
-						font: {
-							family: 'Courier New, monospace',
-							size: 18,
-							color: '#000000'
-						}
-					}
-				}
-			};
-
-			const config = {responsive: true};
-			const data = [trace1];
-			Plotly.newPlot(id, data, layout, config);
-		}
-
-		catch (err) {
-			console.error(err);
-			alert(err);
-		}
-	};
-
 	const canvas = document.getElementById("main");
 	canvas.width = 840;
 	canvas.height = 400;
@@ -391,11 +375,11 @@ document.addEventListener('DOMContentLoaded', function(){
 	const ctx = canvas.getContext("2d");
 
 	const fill = "#A9A9A9", border = "black", lineWidth = 1.5, fps = 150;
-	const colors = {"Loam": "#654321", "Sand": "#754321", "Clay": "#854321"}, msgs = [
+	const msgs = [
 		"Add a 'Weighing Machine' from the apparatus menu.", 
 		"Add a 'Container' from the apparatus menu.",
 		"Click on the container to move it to the weighing machine and weigh it.",
-		"Set appropriate input values (Soil Mass and Soil Type) and add a 'Soil Sample' from the apparatus menu.",
+		"Set appropriate input values (Soil Mass) and add a 'Soil Sample' from the apparatus menu.",
 		"Click on the soil sample to add it to the container and weigh it.",
 		"Add an 'Oven' from the apparatus menu.", 
 		"Click on the container to move it to the oven.",
@@ -406,6 +390,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	let step, translate, lim, objs, keys, enabled;
 	init();
+
+	const tableData = [
+		{ "Soil Type": "Silt", "Dry Soil Mass(g)": "", "Water Content(%)": "" },
+		{ "Soil Type": "Sand", "Dry Soil Mass(g)": "", "Water Content(%)": "" },
+		{ "Soil Type": "Clay", "Dry Soil Mass(g)": "", "Water Content(%)": "" },
+	];
 
 	const objNames = Object.keys(objs);
 	objNames.forEach(function(elem, ind) {
@@ -428,15 +418,11 @@ document.addEventListener('DOMContentLoaded', function(){
 	canvas.addEventListener('mousemove', function(event) {check(event, translate, step, false);});
 	canvas.addEventListener('click', function(event) {check(event, translate, step);});
 
-	const submitButton = document.getElementById("submit");
+	const submitButton = document.getElementById("submit"), table = document.getElementById("table");
 	submitButton.addEventListener('click', function(event) {
 		document.getElementById("inputForm").style.display = 'none';
 		enabled[step].push("soil");
 		keys.push("soil");
-		if(step === 3)
-		{
-			document.getElementById("output2").innerHTML = "Soil Type = " + soilType;
-		}
 		step += 1;
 	});
 

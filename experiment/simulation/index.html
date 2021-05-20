@@ -30,24 +30,6 @@
 							<input type="range" min="50" max="500" value="100" class="slider" id="soilMass">
 						</div>
 
-						<label>
-							Soil Type
-						</label>
-						<div id="soilMenu" class="control" >
-							<label class="radio">
-								<input type="radio" name="type" value="Loam" checked="checked">
-								Loam
-							</label>
-							<label class="radio">
-								<input type="radio" name="type" value="Sand">
-								Sand	
-							</label>
-							<label class="radio">
-								<input type="radio" name="type" value="Clay">
-								Clay	
-							</label>
-						</div>
-
 						<button id="submit" class="action-button add">Add</button>
 					</div>
 
@@ -60,8 +42,10 @@
 					<div class="title is-5">Observations</div>
 					<div class="title is-6 line" id="output1"></div>
 					<div class="title is-6 line" id="output2"></div>
-					<div class="title is-6 line" id="output3"></div>
-					<div class="title is-6 line" id="output4"></div>
+					<div class="table-container">
+						<table id="table" class="table is-bordered">
+						</table>
+					</div>
 				</div>
 			</div>
 
@@ -80,19 +64,7 @@
 			</div>
 		</div>
 
-		<!--<div class="graph">-->
-			<!--<div class="title is-5">NOTE: Insert note here, if any.<div>-->
-					<!--<div class="columns is-centered">-->
-						<!--<div class="column has-text-centered">-->
-							<!--<div id="graph"></div>-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
-			<!--</div>-->
-		<!--</div>-->
-
 		<script src="https://unpkg.com/mathjs@9.2.0/lib/browser/math.js"></script>
-		<script src="https://cdn.plot.ly/plotly-1.47.4.min.js"></script>
 		<script src="./js/main.js"></script>
 	</body>
 </html>
