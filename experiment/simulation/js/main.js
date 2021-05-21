@@ -53,6 +53,14 @@ document.addEventListener('DOMContentLoaded', function(){
 					generateTableHead(tables[i], Object.keys(tableData[0]));
 					generateTable(tables[i], tableData);
 				}
+
+				document.getElementById("apparatus").style.display = 'none';
+				document.getElementById("observations").style.width = '40%';
+				if(small)
+				{
+					document.getElementById("observations").style.width = '85%';
+					document.getElementById("observations").style.marginLeft = '7.5%';
+				}
 			}
 			return step + 1;
 		}
@@ -233,6 +241,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	function init()
 	{
+		small = false;
 		document.getElementById("output1").innerHTML = "Mass of container = ____ g";
 		document.getElementById("output2").innerHTML = "Mass of wet soil = ____ g";
 
@@ -255,6 +264,14 @@ document.addEventListener('DOMContentLoaded', function(){
 		window.clearTimeout(tmHandle); 
 
 		document.getElementById("inputForm").style.display = 'none';
+		document.getElementById("apparatus").style.display = 'block';
+		document.getElementById("observations").style.marginLeft = '0%';
+		document.getElementById("observations").style.width = '20%';
+		if(small)
+		{
+			document.getElementById("observations").style.width = '40%';
+		}
+
 		for(let i = 0; i < tables.length; i += 1)
 		{
 			tables[i].innerHTML = "";
@@ -397,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		"Click the restart button to perform the experiment again.",
 	];
 
-	let step, translate, lim, objs, keys, enabled;
+	let step, translate, lim, objs, keys, enabled, small;
 	init();
 
 	const tableData = [
@@ -434,6 +451,35 @@ document.addEventListener('DOMContentLoaded', function(){
 		keys.push("soil");
 		step += 1;
 	});
+
+	function responsiveTable(x) {
+		if(x.matches)	// If media query matches
+		{ 
+			small = true;
+			document.getElementById("observations").style.marginLeft = '0%';
+			document.getElementById("observations").style.width = '40%';
+			if(step === 9)
+			{
+				document.getElementById("observations").style.marginLeft = '7.5%';
+				document.getElementById("observations").style.width = '85%';
+			}
+		} 
+
+		else
+		{
+			small = false;
+			document.getElementById("observations").style.marginLeft = '0%';
+			document.getElementById("observations").style.width = '20%';
+			if(step === 9)
+			{
+				document.getElementById("observations").style.width = '40%';
+			}
+		}
+	};
+
+	let x = window.matchMedia("(max-width: 700px)");
+	responsiveTable(x); // Call listener function at run time
+	x.addListener(responsiveTable); // Attach listener function on state changes
 
 	function draw()
 	{
