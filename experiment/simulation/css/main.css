@@ -40,16 +40,17 @@
 	background-color: #A9A9A9;
 }
 
-.graph {
-	margin-left: 7.5%;
-}
-
 .sidebar {
 	padding: 1% 1%;
 	background-color: #f1f1f1;
 	border-radius: 16px;
 	border: 3px solid rgb(151, 210, 61);
 	height: 100%;
+}
+
+.menu-title {
+	padding-bottom: 10px;
+	border-bottom: 3px solid black;
 }
 
 .line {

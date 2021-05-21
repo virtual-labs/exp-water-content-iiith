@@ -48,8 +48,11 @@ document.addEventListener('DOMContentLoaded', function(){
 			else if(step === 8)
 			{
 				logic(tableData);
-				generateTableHead(table, Object.keys(tableData[0]));
-				generateTable(table, tableData);
+				for(let i = 0; i < tables.length; i += 1)
+				{
+					generateTableHead(tables[i], Object.keys(tableData[0]));
+					generateTable(tables[i], tableData);
+				}
 			}
 			return step + 1;
 		}
@@ -250,9 +253,14 @@ document.addEventListener('DOMContentLoaded', function(){
 	function restart() 
 	{ 
 		window.clearTimeout(tmHandle); 
+
 		document.getElementById("inputForm").style.display = 'none';
-		document.getElementById("table").innerHTML = "";
+		for(let i = 0; i < tables.length; i += 1)
+		{
+			tables[i].innerHTML = "";
+		}
 		init();
+
 		tmHandle = window.setTimeout(draw, 1000 / fps); 
 	};
 
@@ -384,7 +392,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		"Click on the soil sample to add it to the container and weigh it.",
 		"Add an 'Oven' from the apparatus menu.", 
 		"Click on the container to move it to the oven.",
-		"Click on the oven red part to start the oven and heat the soil to dry it.",
+		"Click on the oven red portion to start the oven and heat the soil.",
 		"Click on the container with dry soil to weigh it.",
 		"Click the restart button to perform the experiment again.",
 	];
@@ -419,7 +427,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	canvas.addEventListener('mousemove', function(event) {check(event, translate, step, false);});
 	canvas.addEventListener('click', function(event) {check(event, translate, step);});
 
-	const submitButton = document.getElementById("submit"), table = document.getElementById("table");
+	const submitButton = document.getElementById("submit"), tables = document.getElementsByClassName("table");
 	submitButton.addEventListener('click', function(event) {
 		document.getElementById("inputForm").style.display = 'none';
 		enabled[step].push("soil");
