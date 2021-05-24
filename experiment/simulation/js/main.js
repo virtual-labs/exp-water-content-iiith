@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		return step;
 	};
 
-	function updatePos(obj, translate, lim, step)
+	function updatePos(obj, translate)
 	{
 		obj.pos[0] += translate[0];
 		obj.pos[1] += translate[1];
@@ -241,7 +241,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	function init()
 	{
-		small = false;
 		document.getElementById("output1").innerHTML = "Mass of container = ____ g";
 		document.getElementById("output2").innerHTML = "Mass of wet soil = ____ g";
 
@@ -458,7 +457,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			small = true;
 			document.getElementById("observations").style.marginLeft = '0%';
 			document.getElementById("observations").style.width = '40%';
-			if(step === 9)
+			if(step === enabled.length - 1)
 			{
 				document.getElementById("observations").style.marginLeft = '7.5%';
 				document.getElementById("observations").style.width = '85%';
@@ -470,7 +469,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			small = false;
 			document.getElementById("observations").style.marginLeft = '0%';
 			document.getElementById("observations").style.width = '20%';
-			if(step === 9)
+			if(step === enabled.length - 1)
 			{
 				document.getElementById("observations").style.width = '40%';
 			}
@@ -519,7 +518,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 			if(soilMoves.includes(step))
 			{
-				updatePos(objs['soil'], translate, lim, step);
+				updatePos(objs['soil'], translate);
 				if(step === 7)
 				{
 					objs['soil'].heating(translate[1]);
@@ -533,7 +532,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 			if(containerMoves.includes(step))
 			{
-				updatePos(objs['container'], translate, lim, step);
+				updatePos(objs['container'], translate);
 				temp = limCheck(objs['container'], translate, lim, step);
 			}
 
