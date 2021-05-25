@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		{
 			if(step === 2)
 			{
-				document.getElementById("output1").innerHTML = "Mass of container = " + String(30.5) + "g";
+				document.getElementById("output1").innerHTML = "Mass of container = " + String(10) + "g";
 			}
 
 			else if(step === 4)
