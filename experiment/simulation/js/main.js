@@ -1,11 +1,11 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function() {
 
 	const restartButton = document.getElementById('restart');
 	const instrMsg = document.getElementById('procedure-message');
 
-	restartButton.addEventListener('click', function() {restart();});
+	restartButton.addEventListener('click', function() { restart(); });
 
 	function randomNumber(min, max) {
 		return (Math.random() * (max - min + 1) + min).toFixed(2);
@@ -48,11 +48,8 @@ document.addEventListener('DOMContentLoaded', function(){
 			else if(step === 8)
 			{
 				logic(tableData);
-				for(let i = 0; i < tables.length; i += 1)
-				{
-					generateTableHead(tables[i], Object.keys(tableData[0]));
-					generateTable(tables[i], tableData);
-				}
+				generateTableHead(table, Object.keys(tableData[0]));
+				generateTable(table, tableData);
 
 				document.getElementById("apparatus").style.display = 'none';
 				document.getElementById("observations").style.width = '40%';
@@ -62,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function(){
 					document.getElementById("observations").style.marginLeft = '7.5%';
 				}
 			}
+
 			return step + 1;
 		}
 
@@ -86,12 +84,12 @@ document.addEventListener('DOMContentLoaded', function(){
 			ctx.fillStyle = "white";
 			ctx.lineWidth = 3;
 
-			if (this.width < 2 * this.radius) 
+			if(this.width < 2 * this.radius) 
 			{
 				this.radius = this.width / 2;
 			}
 
-			if (this.height < 2 * this.radius) 
+			if(this.height < 2 * this.radius) 
 			{
 				this.radius = this.height / 2;
 			}
@@ -128,12 +126,12 @@ document.addEventListener('DOMContentLoaded', function(){
 		};
 
 		draw(ctx) {
-			if (this.width < 2 * this.radius) 
+			if(this.width < 2 * this.radius) 
 			{
 				this.radius = this.width / 2;
 			}
 
-			if (this.height < 2 * this.radius) 
+			if(this.height < 2 * this.radius) 
 			{
 				this.radius = this.height / 2;
 			}
@@ -168,12 +166,12 @@ document.addEventListener('DOMContentLoaded', function(){
 			this.pos = [x, y];
 			this.img = new Image();
 			this.img.src = './images/weighing machine.png';
-			this.img.onload = () => {ctx.drawImage(this.img, this.pos[0], this.pos[1], this.width, this.height);}; 
+			this.img.onload = () => { ctx.drawImage(this.img, this.pos[0], this.pos[1], this.width, this.height); }; 
 		};
 
 		draw(ctx) {
 			ctx.drawImage(objs['weight'].img, objs['weight'].pos[0], objs['weight'].pos[1], objs['weight'].width, objs['weight'].height);
-		}
+		};
 	};
 
 	class oven {
@@ -271,21 +269,18 @@ document.addEventListener('DOMContentLoaded', function(){
 			document.getElementById("observations").style.width = '40%';
 		}
 
-		for(let i = 0; i < tables.length; i += 1)
-		{
-			tables[i].innerHTML = "";
-		}
+		table.innerHTML = "";
 		init();
 
 		tmHandle = window.setTimeout(draw, 1000 / fps); 
 	};
 
 	function generateTableHead(table, data) {
-		let thead = table.createTHead();
-		let row = thead.insertRow();
+		const thead = table.createTHead();
+		const row = thead.insertRow();
 		data.forEach(function(key, ind) {
-			let th = document.createElement("th");
-			let text = document.createTextNode(key);
+			const th = document.createElement("th");
+			const text = document.createTextNode(key);
 			th.appendChild(text);
 			row.appendChild(th);
 		});
@@ -293,10 +288,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	function generateTable(table, data) {
 		data.forEach(function(rowVals, ind) {
-			let row = table.insertRow();
+			const row = table.insertRow();
 			Object.keys(rowVals).forEach(function(key, i) {
-				let cell = row.insertCell();
-				let text = document.createTextNode(rowVals[key]);
+				const cell = row.insertCell();
+				const text = document.createTextNode(rowVals[key]);
 				cell.appendChild(text);
 			});
 		});
@@ -314,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		let hover = false;
 		canvas.style.cursor = "default";
-		keys.forEach(function(val, ind){
+		keys.forEach(function(val, ind) {
 			if(canvasPos[0] >= objs[val].pos[0] - errMargin && canvasPos[0] <= objs[val].pos[0] + objs[val].width + errMargin && canvasPos[1] >= objs[val].pos[1] - errMargin && canvasPos[1] <= objs[val].pos[1] + objs[val].height + errMargin)
 			{
 				if(step === 2 && val === "container")
@@ -439,11 +434,11 @@ document.addEventListener('DOMContentLoaded', function(){
 	});
 
 	// Input Parameters 
-	let wetSoilMass = 100, soilType = "Loam";
+	let wetSoilMass = 100; 
 	canvas.addEventListener('mousemove', function(event) {check(event, translate, step, false);});
 	canvas.addEventListener('click', function(event) {check(event, translate, step);});
 
-	const submitButton = document.getElementById("submit"), tables = document.getElementsByClassName("table");
+	const submitButton = document.getElementById("submit"), table = document.getElementsByClassName("table")[0];
 	submitButton.addEventListener('click', function(event) {
 		document.getElementById("inputForm").style.display = 'none';
 		enabled[step].push("soil");

@@ -1,1 +1,1 @@
-This test is done to determine the water content in soil by oven drying method.
+This experiment is done to determine the water content of the soil by the oven drying method.
