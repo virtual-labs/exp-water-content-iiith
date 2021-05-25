@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	{
 		const soilData = { 'Silt': randomNumber(22.5, 27.5), 'Sand': randomNumber(12, 16), 'Clay': randomNumber(30, 50) };
 		tableData.forEach(function(row, index) {
-			const ans = soilData[row['Soil Type']];
+			const ans = (Number)(soilData[row['Soil Type']]);
 			row['Water Content(%)'] = ans;
-			row['Dry Soil Mass(g)'] = ((1 - (ans / 100)) * wetSoilMass).toFixed(2);
+			row['Dry Soil Mass(g)'] = ((100 * wetSoilMass) / (ans + 100)).toFixed(2);
 		});
 	};
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		{
 			if(step === 2)
 			{
-				document.getElementById("output1").innerHTML = "Mass of container = " + String(10) + "g";
+				document.getElementById("output1").innerHTML = "Mass of container = " + String(30.5) + "g";
 			}
 
 			else if(step === 4)
