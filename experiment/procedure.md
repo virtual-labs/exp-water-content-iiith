@@ -5,3 +5,4 @@
 5. Start the oven and heat the soil sample by clicking on the red portion of the oven. The sample is heated to dry it by removing all the liquid (mostly water) from it.
 6. Move the container to the weighing machine to weigh the dry soil. This gives us the weight of the dry soil + container and we can easily obtain the weight of the dry soil alone by simply subtracting the weight of the container as is visible from the values in the observations table. 
 7. Check the observation table. The table presents the observations (including water content calculated as per the formula given in theory) for different types of soil as different soils have different textures and densities and hence different water contents for the same mass of soil.
+8. Repeat the experiment for different values of soil sample mass.
