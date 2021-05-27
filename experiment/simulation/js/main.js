@@ -239,8 +239,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	function init()
 	{
-		document.getElementById("output1").innerHTML = "Mass of container = ____ g";
-		document.getElementById("output2").innerHTML = "Mass of wet soil = ____ g";
+		document.getElementById("output1").innerHTML = "Mass of container = ___ g";
+		document.getElementById("output2").innerHTML = "Mass of wet soil = ___ g";
 
 		objs = {
 			"weight": new weight(270, 240, 90, 160),
@@ -396,12 +396,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	const fill = "#A9A9A9", border = "black", lineWidth = 1.5, fps = 150;
 	const msgs = [
-		"Add a 'Weighing Machine' from the apparatus menu.", 
-		"Add a 'Container' from the apparatus menu.",
+		"Click on 'Weighing Machine' in the apparatus menu to add a weighing machine to the workspace.", 
+		"Click on 'Container' in the apparatus menu to add a container to the workspace.",
 		"Click on the container to move it to the weighing machine and weigh it.",
-		"Set appropriate input values (Soil Mass) and add a 'Soil Sample' from the apparatus menu.",
+		"Click on 'Soil Sample' in the apparatus menu, set appropriate input values (Soil Mass) and click 'Add' to add a soil sample to the workspace.",
 		"Click on the soil sample to add it to the container and weigh it.",
-		"Add an 'Oven' from the apparatus menu.", 
+		"Click on 'Oven' in the apparatus menu to add an oven to the workspace.", 
 		"Click on the container to move it to the oven.",
 		"Click on the oven red portion to start the oven and heat the soil.",
 		"Click on the container with dry soil to weigh it.",
