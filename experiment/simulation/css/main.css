@@ -3,10 +3,6 @@
 }
 
 .instructions-box {
-	margin: auto;
-	margin-top: 1%;
-	width: 40%;
-	padding: 1% 1%;
 	border-radius: 16px;
 	border: 3px solid rgb(151, 210, 61);
 }
@@ -90,10 +86,6 @@
 }
 
 @media screen and (max-width: 1023px) {
-	.instructions-box {
-		width: 90%;
-	}
-
 	.workspace {
 		flex-wrap: wrap;
 	}
