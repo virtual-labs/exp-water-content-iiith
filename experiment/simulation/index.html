@@ -8,8 +8,8 @@
 	</head>
 
 	<body class="page">
-		<div class="columns is-centered">
-			<div class="column mt-2 is-4-desktop is-10-tablet is-12-mobile has-text-centered">
+		<div class="columns is-centered is-flex">
+			<div class="column mt-2 is-4-desktop is-10-tablet is-10-mobile has-text-centered">
 				<div class="instructions-box">
 					<div class="title is-4 mb-0 instructions">Instructions</div>
 					<div id="procedure-message" class="procedure-message"></div>
@@ -17,8 +17,8 @@
 			</div>
 		</div>
 
-		<div class="columns is-centered is-variable is-1-mobile workspace">
-			<div id="apparatus" class="column has-text-centered is-2-desktop is-5-tablet is-6-mobile apparatus">
+		<div class="columns is-centered is-variable is-1-mobile is-flex workspace">
+			<div id="apparatus" class="column has-text-centered is-2-desktop is-5-tablet is-5-mobile apparatus">
 				<div class="sidebar">
 					<div class="title is-5 mb-0 menu-title">Apparatus Menu</div>
 					<a class="is-size-6 has-text-weight-semibold line option" id="weight">Weighing Machine</a>
@@ -37,7 +37,7 @@
 				</div>
 			</div>
 
-			<div id="observations" class="column has-text-centered is-2-desktop is-5-tablet is-6-mobile observations">
+			<div id="observations" class="column has-text-centered is-2-desktop is-5-tablet is-5-mobile observations">
 				<div class="sidebar">
 					<div class="title is-5 mb-0 menu-title">Observations</div>
 					<div class="is-size-6 has-text-weight-semibold line" id="output1"></div>
@@ -49,12 +49,12 @@
 				</div>
 			</div>
 
-			<div class="column has-text-centered is-6-desktop is-10-tablet is-12-mobile simulation">
+			<div class="column has-text-centered is-6-desktop is-10-tablet is-10-mobile simulation">
 				<canvas id="main" class="main"></canvas>
 			</div>
 		</div>
 
-		<div class="columns is-mobile is-centered">
+		<div class="columns is-mobile is-centered is-flex">
 			<div class="column has-text-centered">
 				<button id="restart" class="action-button">Restart</button>
 			</div>
