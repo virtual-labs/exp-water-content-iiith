@@ -2,61 +2,16 @@
 	overflow-x: scroll;
 }
 
-.instructions-box {
-	border-radius: 16px;
-	border: 3px solid rgb(151, 210, 61);
-}
-
-.procedure-message {
-	font-size: 120%; 
-}
-
-.main {
+.v-canvas-container {
 	width: 100%;
 	height: 100%;
 }
 
-.action-button {
-	color: white;
-	text-align: center;
-	font-size: 120%;
-	background-color: #288EC8;
-	border-radius: 16px;
-	padding: 10px 20px;
-	border: none;
-}
-
-.action-button:hover {
-	background-color: #A9A9A9;
-}
-
-.sidebar {
-	padding: 1% 1%;
-	background-color: #f1f1f1;
-	border-radius: 16px;
-	border: 3px solid rgb(151, 210, 61);
+.v-datalist-container {
 	height: 100%;
 }
 
-.menu-title {
-	box-shadow: 0px 1px;
-	padding-bottom: 10px;
-	border-bottom: 2px solid white;
-}
-
-.line {
-	display: block;
-	color: black;
-	padding: 10px;
-	text-decoration: none;
-}
-
-.option:hover {
-	background-color: #555;
-	color: white;
-}
-
-.slider {
+.v-slider-full {
 	width: 80%;
 }
 
@@ -65,12 +20,12 @@
 	color: black;
 }
 
-.apparatus {
-	order: 1;
+.add {
+	font-size: 0.90rem; 
 }
 
-.add {
-	font-size: 90%;
+.apparatus {
+	order: 1;
 }
 
 .simulation {
