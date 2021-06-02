@@ -2,29 +2,65 @@
 	"version": 2.0,
 	"questions": [
 		{
-			"question": "1. Which of these best describes an array?",
+			"question": "1. The water content of a soil sample cannot be determined by _____ method.",
 			"answers": {
-				"a": "A data structure that shows a hierarchical behaviour",
-				"b": "Container of objects of similar types",
-				"c": "Container of objects of mixed types",
-				"d": "All of the mentioned"
+				"a": "Oven Drying",
+				"b": "Alcohol",
+				"c": "Calcium Carbide",
+				"d": "Pipette"
 			},
 			"explanations": {
-				"a": "The data structure that shows hierarchial behaviour is a tree",
-				"b": "As we have read earlier a simple container for objects of similar types",
-				"c": "We have a list that is similar to array but is a container of objects of mixed types",
-				"d": "Only b specifies answer"
+				"a": "",
+				"b": "",
+				"c": "",
+				"d": "The pipette method is the standard sedimentation method used in laboratory for wet mechanical or sedimentation analysis."
+			},
+			"difficulty": "beginner",
+			"correctAnswer": "d"
+		},
+		{
+			"question": "2. In oven drying method, the soil sample is kept for about ______ hours in the oven.",
+			"answers": {
+				"a": "1",
+				"b": "2",
+				"c": "24",
+				"d": "48"
+			},
+			"explanations": {
+				"a": "",
+				"b": "",
+				"c": "",
+				"d": "For complete drying, sandy soil takes about 4 hours and fat clays take about 14 to 16 hours. To assure complete drying of sample, it is kept for about 24 hours."
+			},
+			"difficulty": "beginner",
+			"correctAnswer": "c"
+		},
+		{
+			"question": "4. The unit weight of dry soil is greater than the unit weight of wet soil.",
+			"answers": {
+				"a": "True",
+				"b": "False",
+			},
+			"explanations": {
+				"a": "",
+				"b": "",
 			},
 			"difficulty": "beginner",
 			"correctAnswer": "b"
 		},
 		{
-			"question": "2. What is the time complexity of insertion at any point in an array?",
+			"question": "3. A soil has bulk density of 22 kN / m^3 and a dry density of 20 kN / m^3. What is the water content of the soil?",
 			"answers": {
-				"a": "O(N)",
-				"b": "O(N^2)",
-				"c": "O(NLogN)",
-				"d": " None of these"
+				"a": "10%",
+				"b": "12%",
+				"c": "8%",
+				"d": "None of the above"
+			},
+			"explanations": {
+				"a": "It is a dirtect application of the formula.",
+				"b": "",
+				"c": "",
+				"d": ""
 			},
 			"difficulty": "intermediate",
 			"correctAnswer": "a"
