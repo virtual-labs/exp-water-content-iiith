@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				document.getElementById("output2").innerHTML = "Mass of wet soil = " + String(wetSoilMass) + "g";
 			}
 
-			else if(step === 8)
+			else if(step === enabled.length - 2)
 			{
 				logic(tableData);
 				generateTableHead(table, Object.keys(tableData[0]));
