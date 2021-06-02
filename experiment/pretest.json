@@ -1,18 +1,33 @@
-[
-{"question":"This is a Sample Question 1?",
-"answers":{
-            "a":"answer1",
-            "b":"answer2",
-            "c":"answer3",
-            "d":"answer4"
-          },
-"correctAnswer":"a"},
-{"question":"This is a Sample Question 2?",
-"answers":{
-            "a":"answer1",
-            "b":"answer2",
-            "c":"answer3",
-            "d":"answer4"
-          },
-"correctAnswer":"c"} 
-]
+{
+	"version": 2.0,
+	"questions": [
+		{
+			"question": "1. Which of these best describes an array?",
+			"answers": {
+				"a": "A data structure that shows a hierarchical behaviour",
+				"b": "Container of objects of similar types",
+				"c": "Container of objects of mixed types",
+				"d": "All of the mentioned"
+			},
+			"explanations": {
+				"a": "The data structure that shows hierarchial behaviour is a tree",
+				"b": "As we have read earlier a simple container for objects of similar types",
+				"c": "We have a list that is similar to array but is a container of objects of mixed types",
+				"d": "Only b specifies answer"
+			},
+			"difficulty": "beginner",
+			"correctAnswer": "b"
+		},
+		{
+			"question": "2. What is the time complexity of insertion at any point in an array?",
+			"answers": {
+				"a": "O(N)",
+				"b": "O(N^2)",
+				"c": "O(NLogN)",
+				"d": " None of these"
+			},
+			"difficulty": "intermediate",
+			"correctAnswer": "a"
+		}
+	]
+}
