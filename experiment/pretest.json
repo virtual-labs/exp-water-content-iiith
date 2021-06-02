@@ -36,19 +36,6 @@
 			"correctAnswer": "c"
 		},
 		{
-			"question": "4. The unit weight of dry soil is greater than the unit weight of wet soil.",
-			"answers": {
-				"a": "True",
-				"b": "False",
-			},
-			"explanations": {
-				"a": "",
-				"b": "",
-			},
-			"difficulty": "beginner",
-			"correctAnswer": "b"
-		},
-		{
 			"question": "3. A soil has bulk density of 22 kN / m^3 and a dry density of 20 kN / m^3. What is the water content of the soil?",
 			"answers": {
 				"a": "10%",
@@ -64,6 +51,19 @@
 			},
 			"difficulty": "intermediate",
 			"correctAnswer": "a"
-		}
+		},
+		{
+			"question": "4. The values of water content for natural granular soils vary from less than 0.1% for air dry sands to more than 40% for saturated sands.",
+			"answers": {
+				"a": "True",
+				"b": "False",
+			},
+			"explanations": {
+				"a": "Water content depends on relative density of soil.",
+				"b": "Water content depends on relative density of soil.",
+			},
+			"difficulty": "advanced",
+			"correctAnswer": "a"
+		},
 	]
 }
