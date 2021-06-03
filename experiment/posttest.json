@@ -6,7 +6,7 @@
 			"answers": {
 				"a": "Oven Drying Method",
 				"b": "Sun Drying Method",
-				"c": "Calcium Carbide",
+				"c": "Calcium Carbide Method",
 				"d": "Sand Bath Method"
 			},
 			"explanations": {
@@ -24,7 +24,7 @@
 				"a": "Gravimetric",
 				"b": "Volumetric",
 				"c": "Both a and b",
-				"d": " None of the above"
+				"d": "None of the above"
 			},
 			"difficulty": "beginner",
 			"correctAnswer": "c"
@@ -43,13 +43,19 @@
 		{
 			"question": "4. The weight of the soil sample with container is 35g. After drying the soil in oven at 105 C for 24 hours, the dry mass of the soil sample is 24g. The weight of the container is 5g. Determine the water content of the soil sample.",
 			"answers": {
-				"a": "25%",
-				"b": "30%",
+				"a": "23.2%",
+				"b": "25%",
 				"c": "27%",
-				"d": "23.2%"
+				"d": "30%"
+			},
+			"explanations": {
+				"a": "It is a direct application of the formula.",
+				"b": "",
+				"c": "",
+				"d": ""
 			},
 			"difficulty": "advanced",
-			"correctAnswer": "a"
+			"correctAnswer": "b"
 		}
 	]
 }

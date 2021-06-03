@@ -2,24 +2,24 @@
 	"version": 2.0,
 	"questions": [
 		{
-			"question": "1. The water content of a soil sample cannot be determined by _____ method.",
+			"question": "1. The water content of a soil sample cannot be determined by ____ method.",
 			"answers": {
 				"a": "Oven Drying",
-				"b": "Alcohol",
-				"c": "Calcium Carbide",
-				"d": "Pipette"
+				"b": "Alcohol Method",
+				"c": "Calcium Carbide Method",
+				"d": "Pipette Method"
 			},
 			"explanations": {
-				"a": "",
-				"b": "",
-				"c": "",
+				"a": "This method can be used as is demonstrated by this very experiment.",
+				"b": "This method is very similar to the oven drying method. Instead of using an oven to dry the soil, the sample is mixed with a methylated spirit and heated with constant stirring. Clearly, this method can be used for water content determination.",
+				"c": "This method can be used for water content determination. To know more about this method, <a href='https://www.engineeringcivil.com/determining-water-content-in-soil-calcium-carbide-method.html'>click here</a>.",
 				"d": "The pipette method is the standard sedimentation method used in laboratory for wet mechanical or sedimentation analysis."
 			},
 			"difficulty": "beginner",
 			"correctAnswer": "d"
 		},
 		{
-			"question": "2. In oven drying method, the soil sample is kept for about ______ hours in the oven.",
+			"question": "2. In the oven drying method, the soil sample is kept for about ____ hours in the oven.",
 			"answers": {
 				"a": "1",
 				"b": "2",
@@ -30,13 +30,13 @@
 				"a": "",
 				"b": "",
 				"c": "",
-				"d": "For complete drying, sandy soil takes about 4 hours and fat clays take about 14 to 16 hours. To assure complete drying of sample, it is kept for about 24 hours."
+				"d": "For complete drying, sandy soil takes about 4 hours and fat clays take about 14 to 16 hours. To assure complete drying of the sample, it is kept for about 24 hours."
 			},
 			"difficulty": "beginner",
 			"correctAnswer": "c"
 		},
 		{
-			"question": "3. A soil has bulk density of 22 kN / m^3 and a dry density of 20 kN / m^3. What is the water content of the soil?",
+			"question": "3. A soil has a bulk density of 22 kN/m^3 and a dry density of 20 kN/m^3. Determine the water content of the soil.",
 			"answers": {
 				"a": "10%",
 				"b": "12%",
@@ -59,8 +59,8 @@
 				"b": "False"
 			},
 			"explanations": {
-				"a": "Water content depends on relative density of soil.",
-				"b": "Water content depends on relative density of soil."
+				"a": "Water content depends on the relative density of soil.",
+				"b": "Water content depends on the relative density of soil."
 			},
 			"difficulty": "advanced",
 			"correctAnswer": "a"
