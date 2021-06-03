@@ -56,14 +56,14 @@
 			"question": "4. The values of water content for natural granular soils vary from less than 0.1% for air dry sands to more than 40% for saturated sands.",
 			"answers": {
 				"a": "True",
-				"b": "False",
+				"b": "False"
 			},
 			"explanations": {
 				"a": "Water content depends on relative density of soil.",
-				"b": "Water content depends on relative density of soil.",
+				"b": "Water content depends on relative density of soil."
 			},
 			"difficulty": "advanced",
 			"correctAnswer": "a"
-		},
+		}
 	]
 }
