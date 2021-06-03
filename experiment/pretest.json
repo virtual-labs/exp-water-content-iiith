@@ -12,7 +12,7 @@
 			"explanations": {
 				"a": "This method can be used as is demonstrated by this very experiment.",
 				"b": "This method is very similar to the oven drying method. Instead of using an oven to dry the soil, the sample is mixed with a methylated spirit and heated with constant stirring. Clearly, this method can be used for water content determination.",
-				"c": "This method can be used for water content determination. To know more about this method, <a href='https://www.engineeringcivil.com/determining-water-content-in-soil-calcium-carbide-method.html'>click here</a>.",
+				"c": "This method can be used for water content determination. To know more about this method, <a href='https://www.engineeringcivil.com/determining-water-content-in-soil-calcium-carbide-method.html' target='_blank'>click here</a>.",
 				"d": "The pipette method is the standard sedimentation method used in laboratory for wet mechanical or sedimentation analysis."
 			},
 			"difficulty": "beginner",
