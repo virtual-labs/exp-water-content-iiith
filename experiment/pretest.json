@@ -5,15 +5,15 @@
 			"question": "1. The water content of a soil sample cannot be determined by ____ method.",
 			"answers": {
 				"a": "Oven Drying",
-				"b": "Alcohol Method",
-				"c": "Calcium Carbide Method",
-				"d": "Pipette Method"
+				"b": "Alcohol",
+				"c": "Calcium Carbide",
+				"d": "Pipette"
 			},
 			"explanations": {
 				"a": "This method can be used as is demonstrated by this very experiment.",
 				"b": "This method is very similar to the oven drying method. Instead of using an oven to dry the soil, the sample is mixed with a methylated spirit and heated with constant stirring. Clearly, this method can be used for water content determination.",
 				"c": "This method can be used for water content determination. To know more about this method, <a href='https://www.engineeringcivil.com/determining-water-content-in-soil-calcium-carbide-method.html' target='_blank'>click here</a>.",
-				"d": "The pipette method is the standard sedimentation method used in laboratory for wet mechanical or sedimentation analysis."
+				"d": "The pipette method is the standard sedimentation method used in laboratory for wet mechanical or sedimentation analysis and cannot be used for water content determination."
 			},
 			"difficulty": "beginner",
 			"correctAnswer": "d"
@@ -27,33 +27,16 @@
 				"d": "48"
 			},
 			"explanations": {
-				"a": "",
-				"b": "",
-				"c": "",
-				"d": "For complete drying, sandy soil takes about 4 hours and fat clays take about 14 to 16 hours. To assure complete drying of the sample, it is kept for about 24 hours."
+				"a": "Some soil types may take longer and hence 1 hour is not sufficient in general.",
+				"b": "Some soil types may take longer and hence 2 hours is not sufficient in general.",
+				"c": "For complete drying, sandy soil takes about 4 hours and fat clays take about 14 to 16 hours. To assure complete drying of the sample for any type of soil, it is kept for about 24 hours.",
+				"d": "48 hours is an excessive amount of time and the soil can be dried in much lesser time for any soil type."
 			},
 			"difficulty": "beginner",
 			"correctAnswer": "c"
 		},
 		{
-			"question": "3. A soil has a bulk density of 22 kN/m^3 and a dry density of 20 kN/m^3. Determine the water content of the soil.",
-			"answers": {
-				"a": "10%",
-				"b": "12%",
-				"c": "8%",
-				"d": "None of the above"
-			},
-			"explanations": {
-				"a": "It is a dirtect application of the formula.",
-				"b": "",
-				"c": "",
-				"d": ""
-			},
-			"difficulty": "intermediate",
-			"correctAnswer": "a"
-		},
-		{
-			"question": "4. The values of water content for natural granular soils vary from less than 0.1% for air dry sands to more than 40% for saturated sands.",
+			"question": "3. The values of water content for natural granular soils vary from less than 0.1% for air dry sands to more than 40% for saturated sands.",
 			"answers": {
 				"a": "True",
 				"b": "False"
