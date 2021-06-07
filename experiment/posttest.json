@@ -27,10 +27,10 @@
 				"d": "None of the above"
 			},
 			"explanations": {
-				"a": "",
-				"b": "",
+				"a": "Water content can be expressed in terms of weight but this answer is only partially right.",
+				"b": "Water content can be expressed in terms of volume but this answer is only partially right.",
 				"c": "Since water content is essentially just a ratio, this ratio can be determined using both, mass (gravimetric) as well as volume (volumetric).",
-				"d": ""
+				"d": "Water content can be expressed in terms of atleast one of the two among weight and volume and hence this answer is wrong."
 			},
 			"difficulty": "beginner",
 			"correctAnswer": "c"
@@ -42,6 +42,12 @@
 				"b": "Volume of water to volume of voids in soil",
 				"c": "Weight of water to weight of air voids",
 				"d": "Weight of water to weight of solids of given mass of soil"
+			},
+			"explanations": {
+				"a": "In terms of volume, the answer would be the ratio of volume of water to the volume of the solids in the given mass of soil and not the entire soil.",
+				"b": "In terms of volume, the answer would be the ratio of volume of water to the volume of the solids in the given mass of soil and not the voids.",
+				"c": "Finding the ratio with respect to the voids in the soil is incorrect as this is not the definition of water content.",
+				"d": ""
 			},
 			"difficulty": "intermediate",
 			"correctAnswer": "d"
