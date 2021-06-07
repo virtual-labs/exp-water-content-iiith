@@ -1,18 +1,73 @@
-[
-{"question":"This is a Sample Question 1?",
-"answers":{
-            "a":"answer1",
-            "b":"answer2",
-            "c":"answer3",
-            "d":"answer4"
-          },
-"correctAnswer":"a"},
-{"question":"This is a Sample Question 2?",
-"answers":{
-            "a":"answer1",
-            "b":"answer2",
-            "c":"answer3",
-            "d":"answer4"
-          },
-"correctAnswer":"c"} 
-]
+{
+	"version": 2.0,
+	"questions": [
+		{
+			"question": "1. Which of the following methods is more accurate for the determination of water content of soil?",
+			"answers": {
+				"a": "Oven Drying Method",
+				"b": "Sun Drying Method",
+				"c": "Calcium Carbide Method",
+				"d": "Sand Bath Method"
+			},
+			"explanations": {
+				"a": "We have control on the temperature and overall heating process which leads to greater accuracy.",
+				"b": "",
+				"c": "",
+				"d": ""
+			},
+			"difficulty": "beginner",
+			"correctAnswer": "a"
+		},
+		{
+			"question": "2. Soil water content is expressed on what basis?",
+			"answers": {
+				"a": "Gravimetric",
+				"b": "Volumetric",
+				"c": "Both a and b",
+				"d": "None of the above"
+			},
+			"explanations": {
+				"a": "Water content can be expressed in terms of weight but this answer is only partially right.",
+				"b": "Water content can be expressed in terms of volume but this answer is only partially right.",
+				"c": "Since water content is essentially just a ratio, this ratio can be determined using both, mass (gravimetric) as well as volume (volumetric).",
+				"d": "Water content can be expressed in terms of atleast one of the two among weight and volume and hence this answer is wrong."
+			},
+			"difficulty": "beginner",
+			"correctAnswer": "c"
+		},
+		{
+			"question": "3. The water content of soil is defined as the ratio of:",
+			"answers": {
+				"a": "Volume of water to volume of given soil",
+				"b": "Volume of water to volume of voids in soil",
+				"c": "Weight of water to weight of air voids",
+				"d": "Weight of water to weight of solids of given mass of soil"
+			},
+			"explanations": {
+				"a": "In terms of volume, the answer would be the ratio of volume of water to the volume of the solids in the given mass of soil and not the entire soil.",
+				"b": "In terms of volume, the answer would be the ratio of volume of water to the volume of the solids in the given mass of soil and not the voids.",
+				"c": "Finding the ratio with respect to the voids in the soil is incorrect as this is not the definition of water content.",
+				"d": ""
+			},
+			"difficulty": "intermediate",
+			"correctAnswer": "d"
+		},
+		{
+			"question": "4. The weight of a soil sample with container is 35g. After drying the soil in oven at 105 C for 24 hours, the dry mass of the soil sample is 24g. The weight of the container is 5g. Determine the water content of the soil sample.",
+			"answers": {
+				"a": "23.2%",
+				"b": "25%",
+				"c": "27%",
+				"d": "45.8%"
+			},
+			"explanations": {
+				"a": "Check the formula from the theory and recheck your calculations.",
+				"b": "First we determine the weight of wet soil without container, W2 = 35 - 5 = 30g. Then we simply apply the formula as (30 - 24) / 24 = 1 / 4. Finally, multiply by 100 to obtain the answer as a percentage.",
+				"c": "Check the formula from the theory and recheck your calculations.",
+				"d": "This answer fails to take into account the presence of the container's weight in the weight of the wet soil given. Subtract the container's weight (5g) from the given sample weight (35g) to obtain W2 = 30g and instead use this value in the formula."
+			},
+			"difficulty": "advanced",
+			"correctAnswer": "b"
+		}
+	]
+}
