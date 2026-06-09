@@ -1,52 +1,120 @@
 {
-	"version": 2.0,
-	"questions": [
-		{
-			"question": "1. The water content of a soil sample cannot be determined by ____ method.",
-			"answers": {
-				"a": "Oven Drying",
-				"b": "Alcohol",
-				"c": "Calcium Carbide",
-				"d": "Pipette"
-			},
-			"explanations": {
-				"a": "This method can be used as is demonstrated by this very experiment.",
-				"b": "This method is very similar to the oven drying method. Instead of using an oven to dry the soil, the sample is mixed with a methylated spirit and heated with constant stirring. Clearly, this method can be used for water content determination.",
-				"c": "This method can be used for water content determination. To know more about this method, <a href='https://www.engineeringcivil.com/determining-water-content-in-soil-calcium-carbide-method.html' target='_blank'>click here</a>.",
-				"d": "The pipette method is the standard sedimentation method used in laboratory for wet mechanical or sedimentation analysis and cannot be used for water content determination."
-			},
-			"difficulty": "beginner",
-			"correctAnswer": "d"
-		},
-		{
-			"question": "2. In the oven drying method, the soil sample is kept for about ____ hours in the oven.",
-			"answers": {
-				"a": "1",
-				"b": "2",
-				"c": "24",
-				"d": "48"
-			},
-			"explanations": {
-				"a": "Some soil types may take longer and hence 1 hour is not sufficient in general.",
-				"b": "Some soil types may take longer and hence 2 hours is not sufficient in general.",
-				"c": "For complete drying, sandy soil takes about 4 hours and fat clays take about 14 to 16 hours. To assure complete drying of the sample for any type of soil, it is kept for about 24 hours.",
-				"d": "48 hours is an excessive amount of time and the soil can be dried in much lesser time for any soil type."
-			},
-			"difficulty": "beginner",
-			"correctAnswer": "c"
-		},
-		{
-			"question": "3. The values of water content for natural granular soils vary from less than 0.1% for air dry sands to more than 40% for saturated sands.",
-			"answers": {
-				"a": "True",
-				"b": "False"
-			},
-			"explanations": {
-				"a": "Water content depends on the relative density of soil.",
-				"b": "Water content depends on the relative density of soil."
-			},
-			"difficulty": "advanced",
-			"correctAnswer": "a"
-		}
-	]
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. The water content of a soil sample cannot be determined by ____ method.",
+      "answers": {
+        "a": "Oven Drying",
+        "b": "Alcohol",
+        "c": "Calcium Carbide",
+        "d": "Pipette"
+      },
+      "explanations": {
+        "a": "Incorrect. This method can be used as is demonstrated by this very experiment.",
+        "b": "Incorrect. This method is very similar to the oven drying method. Instead of using an oven to dry the soil, the sample is mixed with a methylated spirit and heated with constant stirring. Clearly, this method can be used for water content determination.",
+        "c": "Incorrect. This method can be used for water content determination. To know more about this method, <a href='https://www.engineeringcivil.com/determining-water-content-in-soil-calcium-carbide-method.html' target='_blank'>click here</a>.",
+        "d": "Correct. The pipette method is the standard sedimentation method used in laboratory for wet mechanical or sedimentation analysis and cannot be used for water content determination."
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "d"
+    },
+    {
+      "question": "2. In the oven drying method, the soil sample is kept for about ____ hours in the oven.",
+      "answers": {
+        "a": "1",
+        "b": "2",
+        "c": "24",
+        "d": "48"
+      },
+      "explanations": {
+        "a": "Incorrect. Some soil types may take longer and hence 1 hour is not sufficient in general.",
+        "b": "Incorrect. Some soil types may take longer and hence 2 hours is not sufficient in general.",
+        "c": "Correct. For complete drying, sandy soil takes about 4 hours and fat clays take about 14 to 16 hours. To assure complete drying of the sample for any type of soil, it is kept for about 24 hours.",
+        "d": "Incorrect. 48 hours is an excessive amount of time and the soil can be dried in much lesser time for any soil type."
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "c"
+    },
+    {
+      "question": "3. The values of water content for natural granular soils vary from less than 0.1% for air dry sands to more than 40% for saturated sands.",
+      "answers": {
+        "a": "True",
+        "b": "False"
+      },
+      "explanations": {
+        "a": "Correct. Water content depends on the relative density of soil.",
+        "b": "Incorrect. Water content depends on the relative density of soil."
+      },
+      "difficulty": "advanced",
+      "correctAnswer": "a"
+    },
+    {
+      "question": "4. Which method is considered the standard laboratory method for determining the water content of soil?",
+      "answers": {
+        "a": "Oven drying method",
+        "b": "Pipette method",
+        "c": "Hydrometer method",
+        "d": "Sieve analysis"
+      },
+      "explanations": {
+        "a": "Correct. The oven drying method is the standard laboratory method for water content determination.",
+        "b": "Incorrect. The pipette method is used for particle size analysis.",
+        "c": "Incorrect. The hydrometer method is used for fine-grained soil analysis.",
+        "d": "Incorrect. Sieve analysis is used for grain size distribution."
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "a"
+    },
+    {
+      "question": "5. In the oven drying method, soil samples are generally dried for about:",
+      "answers": {
+        "a": "1 hour",
+        "b": "2 hours",
+        "c": "12 hours",
+        "d": "24 hours"
+      },
+      "explanations": {
+        "a": "Incorrect. One hour is generally insufficient.",
+        "b": "Incorrect. Two hours may not completely dry the sample.",
+        "c": "Incorrect. Twelve hours may not ensure constant mass.",
+        "d": "Correct. Soil samples are generally dried for about 24 hours."
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "d"
+    },
+    {
+      "question": "6. Water content is defined as the ratio of:",
+      "answers": {
+        "a": "Mass of water to mass of dry soil solids",
+        "b": "Mass of water to total mass of soil",
+        "c": "Volume of water to volume of voids",
+        "d": "Mass of solids to mass of water"
+      },
+      "explanations": {
+        "a": "Correct. Water content is the ratio of mass of water to mass of dry soil solids.",
+        "b": "Incorrect. This is not the standard definition.",
+        "c": "Incorrect. Water content is not defined using void volume.",
+        "d": "Incorrect. The ratio is reversed."
+      },
+      "difficulty": "intermediate",
+      "correctAnswer": "a"
+    },
+    {
+      "question": "7. Why is water content determination important in geotechnical engineering?",
+      "answers": {
+        "a": "Only for soil colour identification",
+        "b": "Only for mineral identification",
+        "c": "For evaluating engineering properties of soil",
+        "d": "Only for measuring particle size"
+      },
+      "explanations": {
+        "a": "Incorrect. Soil colour alone is not the purpose.",
+        "b": "Incorrect. Mineral identification requires other tests.",
+        "c": "Correct. Water content significantly affects engineering behaviour.",
+        "d": "Incorrect. Particle size requires separate tests."
+      },
+      "difficulty": "advanced",
+      "correctAnswer": "c"
+    }
+  ]
 }
