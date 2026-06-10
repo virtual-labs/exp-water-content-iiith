@@ -1,3 +1,5 @@
-This test is done to determine the water content in soil by oven drying method.
+The objectives of this experiment are to:
 
-[Read More](Exp-1 WaterContent.pdf)
+- Determine the water content of a soil sample using the oven drying method.
+- Understand the principle and procedure of water content determination.
+- Learn the importance of water content in soil classification and engineering applications.
