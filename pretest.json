@@ -1,0 +1,154 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. The water content of a soil sample cannot be determined by ____ method.",
+      "answers": {
+        "a": "Oven Drying",
+        "b": "Alcohol",
+        "c": "Calcium Carbide",
+        "d": "Pipette"
+      },
+      "explanations": {
+        "a": "Incorrect. This method can be used as is demonstrated by this very experiment.",
+        "b": "Incorrect. This method is very similar to the oven drying method. Instead of using an oven to dry the soil, the sample is mixed with a methylated spirit and heated with constant stirring. Clearly, this method can be used for water content determination.",
+        "c": "Incorrect. This method can be used for water content determination. To know more about this method, $\\\\$ <a href='https://www.engineeringcivil.com/determining-water-content-in-soil-calcium-carbide-method.html' target='_blank'>click here</a>.",
+        "d": "Correct. The pipette method is the standard sedimentation method used in laboratory for wet mechanical or sedimentation analysis and cannot be used for water content determination."
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "d"
+    },
+    {
+      "question": "2. In the oven drying method, the soil sample is kept for about ____ hours in the oven.",
+      "answers": {
+        "a": "1",
+        "b": "2",
+        "c": "24",
+        "d": "48"
+      },
+      "explanations": {
+        "a": "Incorrect. Some soil types may take longer and hence 1 hour is not sufficient in general.",
+        "b": "Incorrect. Some soil types may take longer and hence 2 hours is not sufficient in general.",
+        "c": "Correct. For complete drying, sandy soil takes about 4 hours and fat clays take about 14 to 16 hours. To assure complete drying of the sample for any type of soil, it is kept for about 24 hours.",
+        "d": "Incorrect. 48 hours is an excessive amount of time and the soil can be dried in much lesser time for any soil type."
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "c"
+    },
+    {
+      "question": "3. Which method is considered the standard laboratory method for determining the water content of soil?",
+      "answers": {
+        "a": "Oven drying method",
+        "b": "Pipette method",
+        "c": "Hydrometer method",
+        "d": "Sieve analysis"
+      },
+      "explanations": {
+        "a": "Correct. The oven drying method is the standard laboratory method for water content determination.",
+        "b": "Incorrect. The pipette method is used for particle size analysis.",
+        "c": "Incorrect. The hydrometer method is used for fine-grained soil analysis.",
+        "d": "Incorrect. Sieve analysis is used for grain size distribution."
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "a"
+    },
+    {
+      "question": "4. In the oven drying method, soil samples are generally dried for about:",
+      "answers": {
+        "a": "1 hour",
+        "b": "2 hours",
+        "c": "12 hours",
+        "d": "24 hours"
+      },
+      "explanations": {
+        "a": "Incorrect. One hour is generally insufficient.",
+        "b": "Incorrect. Two hours may not completely dry the sample.",
+        "c": "Incorrect. Twelve hours may not ensure constant mass.",
+        "d": "Correct. Soil samples are generally dried for about 24 hours."
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "d"
+    },
+    {
+      "question": "5. Water content is defined as the ratio of:",
+      "answers": {
+        "a": "Mass of water to mass of dry soil solids",
+        "b": "Mass of water to total mass of soil",
+        "c": "Volume of water to volume of voids",
+        "d": "Mass of solids to mass of water"
+      },
+      "explanations": {
+        "a": "Correct. Water content is the ratio of mass of water to mass of dry soil solids.",
+        "b": "Incorrect. This is not the standard definition.",
+        "c": "Incorrect. Water content is not defined using void volume.",
+        "d": "Incorrect. The ratio is reversed."
+      },
+      "difficulty": "intermediate",
+      "correctAnswer": "a"
+    },
+    {
+      "question": "6. Which of the following factors does NOT directly influence the water content of a soil sample?",
+      "answers": {
+        "a": "Particle size distribution",
+        "b": "Mineralogical composition",
+        "c": "Organic matter content",
+        "d": "Color of the soil"
+      },
+      "explanations": {
+        "a": "Incorrect. Particle size distribution affects porosity and thus water retention.",
+        "b": "Incorrect. Mineralogical composition influences the surface area and water adsorption properties.",
+        "c": "Incorrect. Organic matter has a high water retention capacity.",
+        "d": "Correct. The color of the soil is primarily due to its mineral composition and organic content, but it does not directly influence the water content itself."
+      },
+      "difficulty": "intermediate",
+      "correctAnswer": "d"
+    },
+    {
+      "question": "7. The values of water content for natural granular soils vary from less than 0.1% for air dry sands to more than 40% for saturated sands.",
+      "answers": {
+        "a": "True",
+        "b": "False"
+      },
+      "explanations": {
+        "a": "Correct. Water content depends on the relative density of soil.",
+        "b": "Incorrect. Water content depends on the relative density of soil."
+      },
+      "difficulty": "advanced",
+      "correctAnswer": "a"
+    },
+    {
+      "question": "8. A soil sample has a wet weight of 150g and a dry weight of 120g. What is its water content?",
+      "answers": {
+        "a": "20%",
+        "b": "25%",
+        "c": "30%",
+        "d": "35%"
+      },
+      "explanations": {
+        "a": "Incorrect. Water content is calculated as (Mass of water / Mass of dry soil solids) * 100.",
+        "b": "Correct. Mass of water = 150g - 120g = 30g. Water content = (30g / 120g) * 100 = 25%.",
+        "c": "Incorrect. Water content is calculated as (Mass of water / Mass of dry soil solids) * 100.",
+        "d": "Incorrect. Water content is calculated as (Mass of water / Mass of dry soil solids) * 100."
+      },
+      "difficulty": "advanced",
+      "correctAnswer": "b"
+    },
+    {
+      "question": "9. The water content of a highly organic soil is generally: ",
+      "answers": {
+        "a": "Lower than inorganic soils",
+        "b": "Similar to inorganic soils",
+        "c": "Higher than inorganic soils",
+        "d": "Irrelevant to soil type"
+      },
+      "explanations": {
+        "a": "Incorrect. Organic matter has a high capacity to absorb and retain water.",
+        "b": "Incorrect. Organic soils typically have different water retention properties.",
+        "c": "Correct. Highly organic soils tend to have a higher water content due to the water-absorbing nature of organic matter.",
+        "d": "Incorrect. Soil type, especially organic content, is highly relevant to water content."
+      },
+      "difficulty": "intermediate",
+      "correctAnswer": "c"
+    }
+  ]
+}

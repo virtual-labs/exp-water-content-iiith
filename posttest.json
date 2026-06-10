@@ -1,0 +1,158 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. Which of the following methods is more accurate for the determination of water content of soil?",
+      "answers": {
+        "a": "Oven Drying Method",
+        "b": "Sun Drying Method",
+        "c": "Calcium Carbide Method",
+        "d": "Sand Bath Method"
+      },
+      "explanations": {
+        "a": "Correct. We have control on the temperature and overall heating process which leads to greater accuracy.",
+        "b": "Incorrect. Sun drying is not accurate due to uncontrolled temperature and environmental factors.",
+        "c": "Incorrect. While useful, the Calcium Carbide method is generally less accurate than the oven drying method.",
+        "d": "Incorrect. The sand bath method is less accurate and less controlled than the oven drying method."
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "a"
+    },
+    {
+      "question": "2. Soil water content is expressed on what basis?",
+      "answers": {
+        "a": "Gravimetric",
+        "b": "Volumetric",
+        "c": "Both a and b",
+        "d": "None of the above"
+      },
+      "explanations": {
+        "a": "Incorrect. Water content can be expressed in terms of weight but this answer is only partially right.",
+        "b": "Incorrect. Water content can be expressed in terms of volume but this answer is only partially right.",
+        "c": "Correct. Since water content is essentially just a ratio, this ratio can be determined using both, mass (gravimetric) as well as volume (volumetric).",
+        "d": "Incorrect. Water content can be expressed in terms of at least one of the two among weight and volume and hence this answer is wrong."
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "c"
+    },
+    {
+      "question": "3. The water content of soil is defined as the ratio of:",
+      "answers": {
+        "a": "Volume of water to volume of given soil",
+        "b": "Volume of water to volume of voids in soil",
+        "c": "Weight of water to weight of air voids",
+        "d": "Weight of water to weight of solids of given mass of soil"
+      },
+      "explanations": {
+        "a": "Incorrect. In terms of volume, the answer would be the ratio of volume of water to the volume of the solids in the given mass of soil and not the entire soil.",
+        "b": "Incorrect. In terms of volume, the answer would be the ratio of volume of water to the volume of the solids in the given mass of soil and not the voids.",
+        "c": "Incorrect. Finding the ratio with respect to the voids in the soil is incorrect as this is not the definition of water content.",
+        "d": "Correct. Water content is fundamentally defined as the ratio of the weight of water to the weight of solids in a given mass of soil."
+      },
+      "difficulty": "intermediate",
+      "correctAnswer": "d"
+    },
+    {
+      "question": "4. The weight of a soil sample with container is 35g. After drying the soil in oven at 105 C for 24 hours, the dry mass of the soil sample is 24g. The weight of the container is 5g. Determine the water content of the soil sample.",
+      "answers": {
+        "a": "23.2%",
+        "b": "25%",
+        "c": "27%",
+        "d": "45.8%"
+      },
+      "explanations": {
+        "a": "Incorrect. Check the formula from the theory and recheck your calculations.",
+        "b": "Correct. First we determine the weight of wet soil without container, W2 = 35 - 5 = 30g. Then we simply apply the formula as (30 - 24) / 24 = 1 / 4. Finally, multiply by 100 to obtain the answer as a percentage.",
+        "c": "Incorrect. Check the formula from the theory and recheck your calculations.",
+        "d": "Incorrect. This answer fails to take into account the presence of the container's weight in the weight of the wet soil given. Subtract the container's weight (5g) from the given sample weight (35g) to obtain W2 = 30g and instead use this value in the formula."
+      },
+      "difficulty": "advanced",
+      "correctAnswer": "b"
+    },
+    {
+      "question": "5. Why is it important to dry soil samples at a specific temperature (e.g., 105-110°C) in the oven drying method?",
+      "answers": {
+        "a": "To prevent the soil particles from melting",
+        "b": "To ensure all free water is evaporated without altering the soil's chemical structure",
+        "c": "To accelerate the drying process as much as possible",
+        "d": "To sterilize the soil sample"
+      },
+      "explanations": {
+        "a": "Incorrect. Soil particles do not melt at this temperature range.",
+        "b": "Correct. This temperature range is chosen to evaporate only the free water and avoid chemically bound water, which would alter the soil's properties.",
+        "c": "Incorrect. While it speeds up drying, the primary reason is to ensure accurate water content determination without chemical changes.",
+        "d": "Incorrect. Sterilization is not the main objective of drying soil for water content determination."
+      },
+      "difficulty": "beginner",
+      "correctAnswer": "b"
+    },
+    {
+      "question": "6. What is the primary disadvantage of using rapid methods (like alcohol or calcium carbide) for water content determination compared to the oven drying method?",
+      "answers": {
+        "a": "They are more expensive.",
+        "b": "They require more specialized equipment.",
+        "c": "They are generally less accurate and may involve chemical reactions.",
+        "d": "They take a longer time to complete."
+      },
+      "explanations": {
+        "a": "Incorrect. Some rapid methods can be less expensive in terms of equipment.",
+        "b": "Incorrect. Rapid methods often require simpler, portable equipment.",
+        "c": "Correct. Rapid methods often involve chemical reactions or less precise drying, leading to lower accuracy compared to the controlled oven drying method.",
+        "d": "Incorrect. Rapid methods are specifically designed to be faster than the oven drying method."
+      },
+      "difficulty": "intermediate",
+      "correctAnswer": "c"
+    },
+    {
+      "question": "7. Which type of soil typically exhibits the highest water content due to its high specific surface area and mineral composition?",
+      "answers": {
+        "a": "Coarse sand",
+        "b": "Gravel",
+        "c": "Silt",
+        "d": "Clay"
+      },
+      "explanations": {
+        "a": "Incorrect. Coarse sand has relatively low specific surface area and thus lower water retention.",
+        "b": "Incorrect. Gravel has very low specific surface area and minimal water retention.",
+        "c": "Incorrect. Silt has a higher water content than sand but generally less than clay.",
+        "d": "Correct. Clay soils have a very high specific surface area and often contain clay minerals that can absorb significant amounts of water, leading to high water content."
+      },
+      "difficulty": "intermediate",
+      "correctAnswer": "d"
+    },
+    {
+      "question": "8. If a soil sample is dried at a temperature significantly higher than 110°C, what might be the consequence for the determined water content?",
+      "answers": {
+        "a": "The determined water content would be artificially low.",
+        "b": "The determined water content would be artificially high.",
+        "c": "The water content would be accurately determined, but the soil structure would be damaged.",
+        "d": "There would be no significant effect on the determined water content."
+      },
+      "explanations": {
+        "a": "Incorrect. Higher temperatures would likely evaporate more than just free water.",
+        "b": "Correct. Drying at excessively high temperatures can cause the evaporation of chemically bound water or the decomposition of organic matter, leading to an artificially high calculated water content because the 'dry' weight would be lower than it should be.",
+        "c": "Incorrect. Both accuracy and soil structure can be affected.",
+        "d": "Incorrect. There would be a significant effect due to the evaporation of chemically bound water or organic matter decomposition."
+      },
+      "difficulty": "advanced",
+      "correctAnswer": "b"
+    },
+    {
+      "question": "9. What is the significance of reaching a 'constant mass' when drying a soil sample for water content determination?",
+      "answers": {
+        "a": "It indicates that the soil has reached its maximum possible water content.",
+        "b": "It ensures that all organic matter has been burned off.",
+        "c": "It confirms that all free water has been evaporated and the dry weight is stable.",
+        "d": "It means the soil sample is ready for compaction testing."
+      },
+      "explanations": {
+        "a": "Incorrect. Constant mass indicates complete drying, not maximum water content.",
+        "b": "Incorrect. Burning off organic matter requires much higher temperatures.",
+        "c": "Correct. Reaching constant mass signifies that all evaporable water has been removed, and the mass of the dry soil solids is stable, which is crucial for accurate water content calculation.",
+        "d": "Incorrect. While important for subsequent tests, constant mass specifically relates to the completion of drying for water content determination."
+      },
+      "difficulty": "advanced",
+      "correctAnswer": "c"
+    }
+  ]
+}
